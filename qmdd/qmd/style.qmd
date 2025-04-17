@@ -1,0 +1,1079 @@
+---
+title: ""
+author: ""
+format:
+  revealjs:
+    theme: default
+    transition: fade         # 슬라이드 전환 효과 ✨
+    slide-number: true       # 슬라이드 번호 표시 🔢
+    toc: false                # 목차 표시 🗂️
+    toc-depth: 2             # 목차 깊이 설정
+    css: style.css           # 귀여운 꾸밈 CSS 연결 🎀
+    auto-stretch: true       # 콘텐츠 자동 정렬/stretch
+    center: true               # 모든 콘텐츠 가운데 정렬
+    highlight-style: github   # 코드 블록 스타일 예쁘게
+    chalkboard: true          # 발표 중 칠판 기능 사용 가능
+---
+<!-- 타이틀 슬라이드 내용 -->
+<div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+  <h1>🚦 멈춰! 교통사고! </h1>
+  <h3>3조 - LS빅데이터스쿨</h3>
+  <img src="photo/Visual.png" width="300"/>
+  <p>교통사고, 당신의 데이터는 알고 있다 </p>
+</div>
+---
+
+## Table of content
+
+1. 팀 소개 <br>
+2. 프로젝트 개요 <br>
+3. 프로젝트 목적 <br>
+4. 프로젝트 가설 <br>
+5. 분석 진행 및 결과 <br>
+
+## 📌 팀 소개
+
+-   이름: **3조** 🎓
+-   구성원: 편서영, 한지수, 오상원, 이창혁
+
+------------------------------------------------------------------------
+
+## 📊 프로젝트 개요
+
+- 교통사고는 단순한 운전자 실수만의 문제가 아닙니다! 🚗, 🚕, 🚙
+- 전국 단속카메라 설치정보, 도로 속성, 지역 등을 통합하여 탐색!  
+- 데이터는 말합니다 🕵️ 사고는 예방될 수 있습니다!
+
+------------------------------------------------------------------------
+
+## 🎯 프로젝트 목적
+
+::: center
+**교통사고 발생건수에 영향을 미치는 요인분석**
+:::
+
+::: center
+<img src="photo/search.png" style="float: right" width="300"/>
+:::
+
+------------------------------------------------------------------------
+
+## 🔍 프로젝트 가설 설정
+
+1. **도로 종류**에 따라 사고 건수에 유의미한 차이가 있다.
+2. **각 시도별 사고건수**가 차이가 있을 것이다.
+3. **단속카메라 수**가 사고 건수에 영향을 미칠 것이다. 
+4. **도로노선** 유무에 따라 사고 건수 차이가 있을 것이다.
+
+------------------------------------------------------------------------
+
+## 🧪 분석진행
+<img src="photo/Starman.png" style="float: right" width="200"/>
+
+------------------------------------------------------------------------
+
+- 데이터 출처 및 설명
+
+<img src="photo/교통사고 통계.png" width="900"/>
+<img src="photo/단속카메라.png" width="900"/>
+
+------------------------------------------------------------------------
+
+- 데이터 불러오기
+
+```{python}
+#| echo: true
+import pandas as pd
+import numpy as np
+import matplotlib as mpl
+
+mpl.rcParams['font.family'] = 'Malgun Gothic'
+camera = pd.read_csv('../team2/data/camera.csv')
+accident = pd.read_csv('../team2/data/accident.csv', encoding='cp949')
+```
+
+---------
+
+- 데이터 정보 확인
+```{python}
+print(camera.info())
+```
+
+---------
+
+- 데이터 정보 확인
+```{python}
+print(accident.info())
+```
+
+------------------------------------------------------------------------
+
+- 가설 1 분석 진행 : 지역별 대표도로 사고건수 비교
+
+```{python}
+#| echo: true
+#| code-fold: true
+
+accident['시도명'] = accident['시도명'].replace('서울', '서울특별시')
+accident['시도명'] = accident['시도명'].replace('부산', '부산광역시')
+accident['시도명'] = accident['시도명'].replace('경기', '경기도')
+accident['시도명'] = accident['시도명'].replace('경남', '경상남도')
+accident['시도명'] = accident['시도명'].replace('전남', '전라남도')
+accident['시도명'] = accident['시도명'].replace('경북', '경상북도')
+accident['시도명'] = accident['시도명'].replace('전북', '전라북도')
+accident['시도명'] = accident['시도명'].replace('대구', '대구광역시')
+accident['시도명'] = accident['시도명'].replace('울산', '울산광역시')
+accident['시도명'] = accident['시도명'].replace('인천', '인천광역시')
+accident['시도명'] = accident['시도명'].replace('제주', '제주특별자치도')
+accident['시도명'] = accident['시도명'].replace('충남', '충청남도')
+accident['시도명'] = accident['시도명'].replace('충북', '충청북도')
+accident['시도명'] = accident['시도명'].replace('강원', '강원특별자치도')
+accident['시도명'] = accident['시도명'].replace('대전', '대전광역시')
+accident['시도명'] = accident['시도명'].replace('세종', '세종특별자치시')
+accident['시도명'] = accident['시도명'].replace('광주', '광주광역시')
+
+```
+
+```{python}
+#| echo: true
+# 사고 다발 정리
+theeshold = accident['사고건수'].quantile(0.75)
+accident['사고다발'] = accident['사고건수'].apply(lambda x: '다발' if x >= theeshold else '보통')
+
+# 시도 별 대표도로 선정
+road_type = camera.groupby('시도명')['도로종류'].agg(lambda x: x.value_counts().index[0]).reset_index(name='대표도로종류')
+road_type = road_type.rename(columns={'도로종류': '대표도로종류'})
+```
+
+------------------------------------------------------------------------
+
+- 가설 1 분석 진행 : 지역별 대표도로 사고건수 비교
+```{python}
+#| echo: true
+# 데이터 병합
+acc_road = pd.merge(road_type, accident, on='시도명')
+
+# 도로종류 vs 사고다발
+ct = pd.crosstab(acc_road['대표도로종류'], acc_road['사고다발'])
+
+ct.loc['일반국도'] = ct.loc['일반국도'] + ct.loc['지방도']
+ct = ct.drop(['지방도'])
+```
+
+------------------------------------------------------------------------
+
+```{python}
+# 스타일링해서 예쁘게 출력
+ct.style.set_table_styles([
+    {'selector': 'th', 'props': [('background-color', '#f4d9c6'),
+                                 ('color', '#333'),
+                                 ('text-align', 'center'),
+                                 ('font-family', 'Jua'),
+                                 ('font-size', '1.1em')]},
+    {'selector': 'td', 'props': [('text-align', 'center'),
+                                 ('font-family', 'Jua'),
+                                 ('padding', '10px')]},
+    {'selector': '', 'props': [('border', '1px solid #ddd'),
+                               ('border-collapse', 'collapse')]}
+]).set_caption("🚦 대표 도로종류별 사고다발 빈도표") \
+  .set_properties(**{
+      'background-color': '#fffdf9',
+      'border-color': '#eee',
+      'border-style': 'solid',
+      'border-width': '1px'
+  })
+```
+
+------------------------------------------------------------------------
+
+- 가설 1 분석 진행 : 지역별 대표도로 사고건수 비교
+```{python}
+#| echo: true
+# 카이제곱 동질성 검정 진행
+from scipy.stats import chi2_contingency
+import matplotlib.pyplot as plt
+chi2, p, dof, exp = chi2_contingency(ct)
+
+print(chi2, p, dof)
+```
+
+------------------------------------------------------------------------
+
+- 카이제곱 동질성 검정 결과
+
+👉 검정 통계량 (Chi²): **11.68** <br>
+👉 자유도 (df): **3** <br>
+👉 유의확률 (p-value): **0.008** <br>
+
+<div class="center">
+✅ <strong>차이가 유의미함을 확인!</strong> ✅
+</div>
+
+------------------------------------------------------------------------
+
+- 카이제곱 동질성 검정 결과
+
+> \[!🎯\] **대표도로 종류**와 **사고 다발** 사이의 관계가 통계적으로 차이가 있다고 주장할만한 통계적 근거가 충분하다.
+
+------------------------------------------------------------------------
+
+- 대표도로 종류별 사고 건수 분포 박스플롯
+```{python}
+#| echo: true
+#| code-fold: true
+import seaborn as sns
+import matplotlib.pyplot as plt
+plt.figure(figsize=(10,6))
+sns.boxplot(x='대표도로종류', y='사고건수', data=acc_road, palette='Set2')
+plt.xticks(rotation=45)
+plt.title('Distribution of Accident Counts by Road Type')
+plt.xlabel('Road Type')
+plt.ylabel('Accident Count')
+plt.show()
+```
+
+------------------------------------------------------------------------
+
+- 대표도로 종류별 사고 다발 비율 그래프
+```{python}
+#| echo: true
+#| code-fold: true
+ct_norm = ct.div(ct.sum(axis=1), axis=0)  # 비율로 변환
+# 비율 데이터프레임을 long-format으로 변환
+ct_long = ct_norm.reset_index().melt(id_vars='대표도로종류', var_name='사고다발', value_name='비율')
+
+plt.figure(figsize=(10, 6))
+sns.pointplot(data=ct_long, x='대표도로종류', y='비율', hue='사고다발', dodge=0.3, markers='o', linestyles='-')
+plt.xticks(rotation=45)
+plt.title('도로종류별 사고다발/보통 비율')
+plt.ylabel('비율')
+plt.xlabel('도로종류')
+plt.tight_layout()
+plt.show()
+```
+
+------------------------------------------------------------------------
+
+- 도로 종류별 사고 다발 비율 그래프
+
+```{python}
+#| code-fold: true
+# accident에 사고다발 여부 추가 (기존과 동일)
+threshold = accident['사고건수'].quantile(0.75)
+accident['사고다발'] = accident['사고건수'].apply(lambda x: '다발' if x >= threshold else '보통')
+
+# camera와 accident 데이터를 시도명 기준으로 단순 병합 (도로종류는 그대로 유지)
+all_road = pd.merge(camera[['시도명', '도로종류']], accident[['시도명', '사고건수', '사고다발']], on='시도명')
+
+# 도로종류별 사고다발 빈도 테이블
+ct_all = pd.crosstab(all_road['도로종류'], all_road['사고다발'])
+```
+
+```{python}
+#| code-fold: true
+# 비율 그래프 시각화
+ct_all_norm = ct_all.div(ct_all.sum(axis=1), axis=0)
+ct_all_long = ct_all_norm.reset_index().melt(id_vars='도로종류', var_name='사고다발', value_name='비율')
+
+plt.figure(figsize=(10, 6))
+sns.pointplot(data=ct_all_long, x='도로종류', y='비율', hue='사고다발', dodge=0.3, markers='o', linestyles='-')
+plt.xticks(rotation=45)
+plt.ylabel('비율')
+plt.xlabel('도로종류')
+plt.title('전체 도로종류별 사고다발/보통 비율 (Point Plot)')
+plt.tight_layout()
+plt.show()
+```
+
+------------------------------------------------------------------------
+
+- Shapiro-Wilk 검정 결과
+
+```{python}
+#| echo: true
+#| code-fold: true
+from scipy.stats import shapiro
+def check_normality_by_road_type(all_road):
+    # 정규성 검정 결과를 저장할 리스트
+    results = []
+
+    # 각 도로종류별로 그룹화하여 정규성 검정
+    for name, group in all_road.groupby('도로종류'):
+        stat, p = shapiro(group['사고건수'])
+        result = '정규분포 아님' if p < 0.05 else '정규분포'
+        results.append([name, p, result])
+
+    # 결과를 데이터프레임으로 변환
+    df_results = pd.DataFrame(results, columns=['도로종류', 'p-value', '정규분포 여부'])
+    
+    # 표 출력
+    return df_results
+```
+
+```{python}
+#| echo: true
+df_normality = check_normality_by_road_type(all_road)
+df_normality
+```
+
+------------------------------------------------------------------------
+
+- Kruskal Wallis H 검정 결과
+
+```{python}
+#| echo: true
+from scipy.stats import kruskal
+
+groups = [g['사고건수'].values for _, g in all_road.groupby('도로종류')]
+stat, p = kruskal(*groups)
+print("Kruskal-Wallis H검정:", p)
+
+```
+
+------------------------------------------------------------------------
+
+- Kruskal Wallis H 검정 결과
+
+> \[!🎯\] **도로 종류**와 **사고건수** 사이의 분포 차이가 있다고 주장할만한 통계적 근거가 충분하다.
+
+------------------------------------------------------------------------
+
+- 가설 2 분석 진행 : 각 시도별 사고건수 간 차이 비교
+
+```{python}
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+# 데이터 전처리 및 확인
+plt.rcParams['font.family'] ='Malgun Gothic'
+plt.rcParams['axes.unicode_minus'] =False
+
+accident_df = pd.read_csv('../team2/data/accident.csv', encoding='cp949')
+
+# 시도명 unique 값 출력 예시
+unique_values = accident_df['시도명'].unique()
+```
+
+------------------------------------------------------------------------
+
+- 각 지역별 평균 사고건수 확인 및 시각화
+```{python}
+#| echo: true
+
+# 각 지역별 평균 사고건수 확인
+accident_avg = accident_df.groupby('시도명')['사고건수'].mean().reset_index()
+```
+
+------------------------------------------------------------------------
+
+- 각 지역별 평균 사고건수 확인
+```{python}
+#| code-fold: true
+ac_avg = accident_avg.sort_values(by='사고건수', ascending=False)
+
+ac_avg.head(7)
+```
+
+------------------------------------------------------------------------
+
+- 시각화 
+
+```{python}
+#| echo: true
+#| code-fold: true
+# 각 지역별 사고건수 시각화
+plt.figure(figsize=(12, 6))
+sns.boxplot(data=accident_df, x='시도명', y='사고건수', palette='Set3')
+plt.title('지역별 사고건수 분포')
+plt.xlabel('지역')
+plt.ylabel('사고건수')
+plt.xticks(rotation=45)
+plt.tight_layout()
+plt.grid(True)
+plt.show()
+```
+
+------------------------------------------------------------------------
+
+- 그래프 비교 결과
+
+> \[!🎯\] 지역별 평균 사고건수에 **차이가 있을 가능성이 높아 보임**!
+
+------------------------------------------------------------------------
+
+- ANOVA 검정
+
+```{python}
+#| echo: true
+# 각 시고별 평균 사고건수 비교: ANOVA 테이블
+import statsmodels.api as sm
+from statsmodels.formula.api import ols
+
+model = ols('사고건수 ~ C(시도명)', data=accident_df).fit()
+
+anova_results = sm.stats.anova_lm(model, typ=2)
+```
+
+👉 H0: 각 지역별 평균 사고건수가 같다. <br>
+👉 H1: 각 지역별 평균 사고건수가 적어도 하나는 다르다.
+
+------------------------------------------------------------------------
+
+```{python}
+from IPython.display import HTML
+
+anova_results = pd.DataFrame(anova_results)
+
+styled = anova_results.style.set_table_styles([
+    {'selector': 'th', 'props': [('background-color', '#f4d9c6'),
+                                 ('color', '#333'),
+                                 ('text-align', 'center'),
+                                 ('font-family', 'Jua'),
+                                 ('font-size', '1.1em')]},
+    {'selector': 'td', 'props': [('text-align', 'center'),
+                                 ('font-family', 'Jua'),
+                                 ('padding', '10px')]},
+    {'selector': '', 'props': [('border', '1px solid #ddd'),
+                               ('border-collapse', 'collapse')]}
+]).set_caption("🚦 ANOVA 분석 결과표")
+
+HTML(styled.to_html())
+```
+
+------------------------------------------------------------------------
+
+- ANOVA 검정 결과
+
+> \[!🎯\] 각 시도별 평균 사고건수가 적어도 하나는 **다르다**라고 주장할만한 통계적 근거가 충분하다.
+
+------------------------------------------------------------------------
+
+- Kruskal Wallis H 검정 진행
+```{python}
+#| echo: true
+from scipy.stats import kruskal
+
+grouped_values = [group['사고건수'].values for _, group in accident_df.groupby('시도명')]
+stat, p = kruskal(*grouped_values)
+stat, p
+```
+
+------------------------------------------------------------------------
+
+- Kruskal Wallis H 검정 결과
+
+> \[!🎯\] 각 지역별 평균 사고건수의 중앙값이 적어도 하나는 **다르다**고 주장할 통계적 근거가 충분하다!
+
+------------------------------------------------------------------------
+
+- 사후검정 : Dunn's test 시각화
+
+```{python}
+#| echo: true
+#| code-fold: true
+import scikit_posthocs as sp_post
+
+posthoc = sp_post.posthoc_dunn(accident, val_col='사고건수', group_col='시도명', p_adjust='bonferroni')
+# Bonferroni 수정을 통해 가설 검정의 유의수준을 조정
+
+# 시각화
+plt.figure(figsize=(10, 7))
+sns.heatmap(posthoc, 
+            annot=True, 
+            fmt=".3f", 
+            cmap="coolwarm_r", 
+            cbar_kws={'label': 'p-value'}, 
+            linewidths=0.5,
+            square=True)
+plt.title("Dunn’s Test: 지역 간 사고건수 차이 (p-value heatmap)")
+plt.xticks(rotation=45)
+plt.yticks(rotation=0)
+plt.tight_layout()
+plt.show()
+```
+
+------------------------------------------------------------------------
+
+- 가설 3 분석 진행 : 단속카메라 수는 사고 건수 비교
+
+```{python}
+accident_df = pd.read_csv('../team2/data/accident.csv', encoding='cp949')
+c_df = pd.read_csv('../team2/data/camera.csv')
+
+sido_map = {
+    '서울특별시': '서울',
+    '부산광역시': '부산',
+    '대구광역시': '대구',
+    '인천광역시': '인천',
+    '광주광역시': '광주',
+    '대전광역시': '대전',
+    '울산광역시': '울산',
+    '세종특별자치시': '세종',
+    '경기도': '경기',
+    '강원특별자치도': '강원',
+    '충청북도': '충북',
+    '충청남도': '충남',
+    '전북특별자치도': '전북',
+    '전라남도': '전남',
+    '경상북도': '경북',
+    '경상남도': '경남',
+    '제주특별자치도': '제주'
+}
+c_df['시도명'] = c_df['시도명'].replace(sido_map)
+```
+
+------------------------------------------------------------------------
+
+- 단속카메라 설치 수에 따른 시도별 사고건수 평균 비교
+
+<img src="photo/gdfgrape.png" style="float: right" width="300"/>
+
+```{python}
+#| echo: true
+#| code-fold: true
+#| eval: false
+import geopandas as gpd
+import plotly.express as px
+import plotly.graph_objects as go
+
+# geopandas로 shp 파일 불러오기
+gdf = gpd.read_file('../team2/data/BND_SIDO_PG.shp')
+print(gdf.crs) # 좌표계 확인
+
+gdf = gdf.to_crs(epsg=4326) # WGS84 (4326) 좌표계로 변환
+
+
+# GeoJSON 파일로 저장 
+gdf.to_file('../team2/data/BND_SIDO_PG.geojson', driver='GeoJSON')
+
+# geojson 파일 불러오기 
+import json
+with open('../team2/data/BND_SIDO_PG.geojson', encoding='utf-8') as f:
+    geojson_data = json.load(f)
+print(geojson_data.keys()) # 확인 용도 
+print(geojson_data['features'][1]['properties']) # 확인 용도
+
+# 카메라 데이터에서 groupby로 시도별 카메라 수 집계한 DataFrame 생성
+agg_cam = camera.groupby('시도명',as_index=False)['무인교통단속카메라관리번호'].count()
+agg_cam.columns = ['SIDO_NM','카메라합계']
+```
+
+```{python}
+#| echo: true
+#| code-fold: true
+#| eval: false
+# plotly 로 지도 시각화 
+fig = px.choropleth_mapbox(
+agg_cam,
+geojson=geojson_data,
+locations="SIDO_NM",
+featureidkey="properties.SIDO_NM",
+color="카메라합계",
+color_continuous_scale="Blues",
+mapbox_style="carto-positron",
+center={"lat": 37.5665, "lon": 126.9780},
+zoom=5,
+opacity=1,
+title="시도 별 카메라 수",
+)
+fig.update_layout(margin={"r":0,"t":30,"l":0,"b":0})
+fig.show()
+```
+
+------------------------------------------------------------------------
+
+```{python}
+#| echo: true
+# 컬럼명 통일0
+camera_count = c_df.groupby(['시도명', '시군구명']).size().reset_index(name='단속카메라수')
+camera_count.rename(columns={'시군구명': '시군구'}, inplace=True)
+
+# 사고건수와 병합
+camera_merged_df = pd.merge(camera_count, accident_df.groupby(['시도명', '시군구'])['사고건수'].sum().reset_index(), on=['시도명', '시군구'])
+
+
+# 사분위수 기반 그룹 나누기 (많음/ 보통/ 적음)
+q1 = camera_merged_df['단속카메라수'].quantile(0.25)
+q3 = camera_merged_df['단속카메라수'].quantile(0.75)
+
+def classify_group(x):
+    if x <= q1:
+        return '적음'
+    elif x >= q3:
+        return '많음'
+    else:
+        return '보통'
+
+camera_merged_df['그룹'] = camera_merged_df['단속카메라수'].apply(classify_group)
+```
+
+------------------------------------------------------------------------
+
+```{python}
+#| echo: true
+#| code-fold: true
+# Boxplot 시각화: 각 그룹의 사고건수 분포와 중앙값 차이
+plt.figure(figsize=(8,5))
+sns.boxplot(x='그룹', y='사고건수', data=camera_merged_df, palette='pastel')
+plt.title('단속카메라 수 그룹별 사고건수 분포')
+plt.xlabel('단속카메라 수 그룹')
+plt.ylabel('사고건수')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+
+------------------------------------------------------------------------
+
+- ANOVA 검정 진행
+
+```{python}
+#| echo: true
+from scipy.stats import f_oneway
+
+group_적음 = camera_merged_df[camera_merged_df['그룹'] == '적음']['사고건수']
+group_보통 = camera_merged_df[camera_merged_df['그룹'] == '보통']['사고건수']
+group_많음 = camera_merged_df[camera_merged_df['그룹'] == '많음']['사고건수']
+
+f_stat, p_value = f_oneway(group_적음, group_보통, group_많음)
+# p-value < 0.05, 귀무가설 기각
+```
+
+------------------------------------------------------------------------
+
+```{python}
+from IPython.display import HTML
+
+anova_result_df = pd.DataFrame({
+    'F-통계량': [f_stat],
+    'p-값': [p_value]
+})
+
+styled = anova_result_df.style.set_table_styles([
+    {'selector': 'th', 'props': [('background-color', '#f4d9c6'),
+                                 ('color', '#333'),
+                                 ('text-align', 'center'),
+                                 ('font-family', 'Jua'),
+                                 ('font-size', '1.1em')]},
+    {'selector': 'td', 'props': [('text-align', 'center'),
+                                 ('font-family', 'Jua'),
+                                 ('padding', '10px')]},
+    {'selector': '', 'props': [('border', '1px solid #ddd'),
+                               ('border-collapse', 'collapse')]}
+]).set_caption("🚦 ANOVA 분석 결과표")
+
+# 출력
+HTML(styled.to_html())
+```
+
+👉 H0: 세 그룹의 모집단 평균은 모두 같다. (차이가 우연에 의한 것)<br>
+👉 H1: 세 그룹 중 적어도 하나는 평균이 다르다.
+
+------------------------------------------------------------------------
+
+- Shapiro-Wilk / Levene 검정 결과
+
+```{python}
+#| echo: true
+#| code-fold: true
+results = []
+# shapiro: 정규성 검정
+from scipy.stats import shapiro
+
+for name, group in zip(['적음', '보통', '많음'], [group_적음, group_보통, group_많음]):
+    stat, p = shapiro(group)
+    norm_check = '정규분포 O' if p > 0.05 else '정규분포 X'
+    results.append([name, round(p, 4), norm_check])
+
+# Levene: 등분산성 검정
+from scipy.stats import levene
+
+stat, p = levene(group_적음, group_보통, group_많음)
+equal_check = '등분산 O' if p > 0.05 else '등분산 X'
+results.append(['등분산성 검정', round(p, 4), equal_check])
+
+df_results = pd.DataFrame(results, columns=['그룹', 'p-value', '여부'])
+
+df_results
+```
+
+------------------------------------------------------------------------
+
+- Kruskal Wallis H 검정 진행
+
+```{python}
+#| echo: true
+from scipy.stats import kruskal
+
+h_stat, p_value = kruskal(group_적음, group_보통, group_많음)
+print(f"Kruskal-Wallis H 검정 통계량: {h_stat:.3f}, p-value: {p_value:.4f}")
+```
+
+------------------------------------------------------------------------
+
+- Kruskal Wallis H 검정 결과
+
+> \[!🎯\] 세 그룹의 중앙값이 적어도 하나는 **다르다** 주장할 통계적 근거가 충분하다!
+
+------------------------------------------------------------------------
+
+- 사후검정 : Dunn's test
+
+```{python}
+#| echo: true
+#| code-fold: true
+import scikit_posthocs as sp
+
+dunn_result = sp.posthoc_dunn(camera_merged_df, val_col='사고건수', group_col='그룹', p_adjust='bonferroni')
+
+# 결과를 쌍별 비교 형식으로 변환
+pairs = []
+for i, group_a in enumerate(dunn_result.index):
+    for j, group_b in enumerate(dunn_result.columns):
+        if i < j:  # 중복 제거 (한 번만 비교)
+            pairs.append({
+                '그룹 A': group_a,
+                '그룹 B': group_b,
+                'p-value': dunn_result.iloc[i, j]
+            })
+
+# 정리된 데이터프레임 만들기
+dunn_pairs_df = pd.DataFrame(pairs)
+
+dunn_pairs_df
+```
+
+------------------------------------------------------------------------
+
+- 가설 4 분석 진행 : 도로노선 유무는 따라 사고 건수 차이 비교
+
+```{python}
+#| echo: true
+
+# 도로노선번호가 존재하는 경우만 True, 아니면 False
+c_df['도로노선있음'] = c_df['도로노선번호'].notna()
+
+# 시군구별 도로노선 유무 중 가장 많은 상태값 기준
+roadline_status = c_df.groupby(['시도명', '시군구명'])['도로노선있음'] \
+                      .agg(lambda x: x.value_counts().index[0]) \
+                      .reset_index(name='도로노선유무')
+
+roadline_status.rename(columns={'시군구명': '시군구'}, inplace=True)
+
+accident_with_roadline = pd.merge(
+    accident_df[['시도명', '시군구', '사고건수']],
+    roadline_status,
+    on=['시도명', '시군구'])
+```
+
+------------------------------------------------------------------------
+
+```{python}
+#| echo: true
+#| code-fold: true
+accident_with_roadline['도로노선유무'] = accident_with_roadline['도로노선유무'].map({True: '있음', False: '없음'})
+
+plt.figure(figsize=(6, 4))
+sns.boxplot(data=accident_with_roadline, x='도로노선유무', y='사고건수', palette='Set3')
+plt.title('도로노선 유무에 따른 사고건수 분포')
+plt.xlabel('도로노선 유무')
+plt.ylabel('사고건수')
+plt.grid(True)
+plt.tight_layout()
+plt.show()
+```
+
+------------------------------------------------------------------------
+
+- 독립 2표본 T 검정
+```{python}
+#| echo: true
+from scipy.stats import shapiro, ttest_ind, mannwhitneyu
+
+group_with = accident_with_roadline[accident_with_roadline['도로노선유무'] == '있음']['사고건수']
+group_without = accident_with_roadline[accident_with_roadline['도로노선유무'] == '없음']['사고건수']
+
+t_stat, p_value = ttest_ind(group_with, group_without, equal_var=False)
+
+results = t_stat, p_value
+```
+
+------------------------------------------------------------------------
+
+- 독립 2표본 T 검정
+```{python}
+여부 = '차이 있음' if p_value < 0.05 else '차이 없음'
+
+t_stat, p_value = ttest_ind(group_with, group_without, equal_var=False)
+
+results = [['도로노선 유무에 따른 사고건수 비교', f"{p_value:.3f}", 여부]]
+
+# DataFrame 생성
+df_results = pd.DataFrame(results, columns=['비교 항목', 'p_value', '여부'])
+
+df_results
+```
+
+------------------------------------------------------------------------
+
+- Shaprio-Wilk 검정 / Mann-Whitney U 검정
+
+```{python}
+#| echo: true
+from scipy.stats import shapiro, ttest_ind, mannwhitneyu
+
+stat, p = shapiro(group_with)
+out_stat, out_p = shapiro(group_without)
+
+stat, p = mannwhitneyu(group_with, group_without)
+```
+
+------------------------------------------------------------------------
+
+- Shaprio-Wilk 검정 / Mann-Whitney U 검정
+
+```{python}
+# 정규성 검정
+results = []
+stat1, p1 = shapiro(group_with)
+result1 = '정규분포' if p1 > 0.05 else '정규분포 아님'
+results.append(['도로노선 있음', round(p1, 4), result1])
+
+stat2, p2 = shapiro(group_without)
+result2 = '정규분포' if p2 > 0.05 else '정규분포 아님'
+results.append(['도로노선 없음', round(p2, 4), result2])
+
+# 비모수 검정 (Mann-Whitney U)
+mw_stat, mw_p = mannwhitneyu(group_with, group_without)
+
+# 결과 DataFrame 생성
+results.append(['Mann-Whitney U 검정', round(mw_p, 4), '유의한 차이 있음' if mw_p < 0.05 else '차이 없음'])
+
+df_results = pd.DataFrame(results, columns=['도로노선유무 / 검정', 'p-value', '판정'])
+
+styled_df = df_results.style.set_table_attributes('class="styled-table"')
+
+styled_df
+```
+
+------------------------------------------------------------------------
+
+- Levene 검정 / Brunner Munzel 검정
+
+```{python}
+#| echo: true
+# 등분산성 검정
+from scipy.stats import levene
+stat, p = levene(group_with, group_without)
+
+from scipy.stats.mstats import brunnermunzel
+stat, pvalue = brunnermunzel(group_with, group_without, alternative='two-sided')
+```
+
+------------------------------------------------------------------------
+
+- Levene 검정 / Brunner Munzel 검정
+
+```{python}
+# 정규성 검정
+results = []
+stat, p = levene(group_with, group_without)
+result1 = '등분산' if p1 > 0.05 else '등분산 아님'
+results.append(['Levene', round(p1, 4), result1])
+
+stat, pvalue = brunnermunzel(group_with, group_without, alternative='two-sided')
+result2 = '분포위치 동일' if p2 > 0.05 else '분포위치 동일 X'
+results.append(['BM', round(p2, 4), result2])
+
+df_results = pd.DataFrame(results, columns=['검정', 'p-value', '판정'])
+
+styled_df = df_results.style.set_table_attributes('class="styled-table"')
+
+styled_df
+```
+
+------------------------------------------------------------------------
+
+- Brunner Munzel 검정 결과
+
+> \[!🎯\] 두 그룹 간의 중앙값에 유의미한 차이가 있다고 주장할만한 통계적 근거가 충분하다. <br> 즉, **도로노선 유무**에 따라 **사고 건수 분포**에 통계적으로 유의미한 차이가 존재하다 주장 가능함!
+
+------------------------------------------------------------------------
+
+- 회귀모델 분석 진행
+
+```{python}
+#| echo: true
+camera['도로노선있음'] = camera['도로노선번호'].notna()
+camera.rename(columns={'시군구명': '시군구'}, inplace=True)
+
+camera_count = camera.groupby(['시도명', '시군구']).size().reset_index(name='단속카메라수')
+camera_merged_df = pd.merge(camera_count, accident.groupby(['시도명', '시군구'])['사고건수'].sum().reset_index(), on=['시도명', '시군구'])
+
+merged_df = pd.merge(camera_merged_df, camera[['시도명', '시군구', '도로종류', '도로노선있음']], on=['시도명', '시군구'])
+
+summary_df = (
+    merged_df.groupby(['시도명', '시군구'])
+    .agg({
+        '단속카메라수': 'first',
+        '사고건수': 'first',
+        '도로노선있음': 'mean'  # True 비율
+    })
+    .reset_index()
+)
+
+# 컬럼명 정리
+summary_df = summary_df[['시군구', '단속카메라수', '사고건수', '도로노선있음']]
+summary_df.rename(columns={'도로노선있음': '도로노선비율'}, inplace=True)
+```
+
+------------------------------------------------------------------------
+
+- 회귀모델 분석 진행
+
+```{python}
+#| echo: true
+pop_df = pd.read_csv('../team2/data/시군구_별_인구수.csv')
+
+pop_df = pop_df.rename(columns={pop_df.columns[0]: '시군구', pop_df.columns[1]: '인구수'})
+pop_df = pop_df[~pop_df['시군구'].str.contains('총인구수|행정구역')]  # 불필요한 행 제거
+pop_df = pop_df.dropna()  # 혹시 모를 NaN 제거
+pop_df['인구수'] = pop_df['인구수'].astype(int)
+
+final_df = pd.merge(summary_df, pop_df, on='시군구', how='left')
+```
+
+------------------------------------------------------------------------
+
+- 회귀모델 분석 진행
+```{python}
+#| echo: true
+from statsmodels.formula.api import ols
+
+model = ols('사고건수 ~ 단속카메라수 + 도로노선비율 + 인구수', final_df).fit()
+```
+
+1. 종속변수 y : 교통사고 발생 건수
+2. 독립변수 X : 단속카메라 수, 도로노선비율, 인구수 / 시군구 별
+
+------------------------------------------------------------------------
+
+```{python}
+print(model.summary())
+```
+
+1. Adj. R-squared: 0.699로 설명력이 높은 모델임을 확인!
+2. Prob (F-statistic): 2.44e-87로 유의미한 회귀 모델임을 확인!
+
+------------------------------------------------------------------------
+
+- OLS 결과 분석
+
+```{python}
+coef = model.params
+p_values = model.pvalues
+conf_int = model.conf_int()
+
+# 변수명 리스트 (원하는 항목만 필터링)
+variables = ['Intercept', '단속카메라수', '도로노선비율', '인구수']
+
+# 표로 정리
+summary_table = pd.DataFrame({
+    '변수': variables,
+    'coef': [coef[var] for var in variables],
+    'p': [p_values[var] for var in variables],
+    '0.025': [conf_int.loc[var][0] for var in variables],
+    '0.975': [conf_int.loc[var][1] for var in variables]
+})
+
+r2 = model.rsquared
+adj_r2 = model.rsquared_adj
+
+# 표 출력
+display(summary_table.round(3))
+```
+
+1. 모든 회귀계수의 p-value가 유의수준 5%하에 유의미한 변수임
+
+2. 단속카메라수의 양의 계수 <br>
+실제로는 "사고가 많은 지역에 카메라를 더 설치"하는 경향이 있음 <br>
+역인과 가능성이 존재
+
+------------------------------------------------------------------------
+
+```{python}
+import matplotlib.pyplot as plt
+import scipy.stats as stats
+#| echo: true
+#| code-fold: true
+residuals = model.resid
+# 서브플롯 설정 (1행 2열)
+fig, axes = plt.subplots(1, 2, figsize=(10, 5))
+
+# Q-Q plot
+stats.probplot(residuals, dist="norm", plot=axes[0])
+axes[0].set_title("Q-Q Plot")
+
+# Residual plot
+axes[1].scatter(model.fittedvalues, residuals)
+axes[1].axhline(0, color='red', linestyle='--')
+axes[1].set_xlabel('Fitted values')
+axes[1].set_ylabel('Residuals')
+axes[1].set_title('Residual Plot')
+
+# 레이아웃 조정 및 출력
+plt.tight_layout()
+plt.show()
+
+```
+
+
+```{python}
+import scipy.stats as sp
+W, p = sp.shapiro(model.resid)
+```
+
+------------------------------------------------------------------------
+
+- 잔차의 정규성 검정
+```{python}
+results = []
+W, p = shapiro(model.resid)
+result1 = '정규성' if p > 0.05 else '정규성 X'
+results.append(['shapiro', round(p, 4), result1])
+
+df_results = pd.DataFrame(results, columns=['검정', 'p-value', '판정'])
+
+styled_df = df_results.style.set_table_attributes('class="styled-table"')
+
+styled_df
+```
+
+잔차 그래프와 정규성 검정, Durbin-Watson 통계량값을 통해 오차항의 가정을 모두 위반하는 것을 확인!
+
+👉 따라서 해당 검정 결과의 신뢰도가 다소 떨어질 수 있다. <br>
+👉 적합한 모델을 새로 설정하여 분석하는 것이 타당해보인다.
+
+
+------------------------------------------------------------------------
+
+## 🎯 결론
+
+------------------------------------------------------------------------
+
+- 가설에 대한 검증
+
+앞서 진행한 검정 결과를 바탕으로, 도로종류, 시도별, 단속카메라 수, 도로노선 유무는 교통사고 발생 건수와 통계적으로 유의미한 요인임을 확인할 수 있었다. 
+
+- 한계점
+1. 회귀모델 잔차분석 결과에 따라 모델 분석 결과의 신뢰도가 떨어질 수 있다.
+2. 한정된 데이터로 만든 모델이기 때문에 일반화가 가능한지를 판단하기 위해 추후 민감도 분석이 필요해보인다.
+3. 분석 요인 외에 교통사고 발생 건수와 관련있는 요인을 변수로 추가하여 분석을 진행한다면 보다 유의미한 결과를 도출할 수 있을 것으로 보인다.
+
+-----------------------------------------------------------------------
+
+## 📮 감사합니다!
+
+> 발표를 들어주셔서 감사합니다 💕
+

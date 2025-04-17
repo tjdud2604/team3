@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+.reveal {
+  font-family: 'Jua', sans-serif;
+}
+
+/* 전체 슬라이드에 글씨체 적용 */
+.reveal {
+  font-family: 'Jua', sans-serif;
+  font-size: 2em;
+  color: #444;
+}
+
+/* 슬라이드 제목 스타일 */
+.reveal h1, .reveal h2, .reveal h3 {
+    font-family: 'Jua', sans-serif;
+  color: #e07a5f;
+  font-weight: bold;
+}
+
+/* 슬라이드 배경에 약간의 패딩과 그림자 효과 */
+.reveal .slide-background {
+  padding: 1em;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* 블록 인용 스타일 (말풍선 느낌) */
+.reveal blockquote {
+  background: #fff7f0;
+  border-left: 5px solid #f4a261;
+  margin: 1em 0;
+  padding: 1em;
+  font-style: italic;
+}
+
+/* 리스트에 말랑한 느낌 추가 */
+.reveal ul li::marker {
+  content: "💫 ";
+}
+
+/* 이미지 중앙 정렬 */
+.reveal img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+  /* box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); */
+  max-width: 180%;
+}
+
+/* 표 스타일 예쁘게 */
+.reveal table {
+  border-collapse: collapse;
+  margin: 1em auto;
+  width: 80%;
+}
+.reveal th, .reveal td {
+  border: 1px solid #ddd;
+  padding: 0.5em 1em;
+}
+.reveal th {
+  background-color: #f4d9c6;
+  color: #333;
+}

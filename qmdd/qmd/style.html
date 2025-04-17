@@ -1,0 +1,2244 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script><script src="style_files/libs/clipboard/clipboard.min.js"></script>
+<script src="style_files/libs/quarto-html/tabby.min.js"></script>
+<script src="style_files/libs/quarto-html/popper.min.js"></script>
+<script src="style_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="style_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="style_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="style_files/libs/quarto-html/quarto-syntax-highlighting-de84f8d6bb715db06a919283c2d1e787.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.6.42">
+
+  <meta name="author" content="">
+  <title>style</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="style_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="style_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+      }
+    pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+    div.sourceCode
+      { color: #24292e;  }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #24292e; } /* Normal */
+    code span.al { color: #ff5555; font-weight: bold; } /* Alert */
+    code span.an { color: #6a737d; } /* Annotation */
+    code span.at { color: #d73a49; } /* Attribute */
+    code span.bn { color: #005cc5; } /* BaseN */
+    code span.bu { color: #d73a49; } /* BuiltIn */
+    code span.cf { color: #d73a49; } /* ControlFlow */
+    code span.ch { color: #032f62; } /* Char */
+    code span.cn { color: #005cc5; } /* Constant */
+    code span.co { color: #6a737d; } /* Comment */
+    code span.cv { color: #6a737d; } /* CommentVar */
+    code span.do { color: #6a737d; } /* Documentation */
+    code span.dt { color: #d73a49; } /* DataType */
+    code span.dv { color: #005cc5; } /* DecVal */
+    code span.er { color: #ff5555; text-decoration: underline; } /* Error */
+    code span.ex { color: #d73a49; font-weight: bold; } /* Extension */
+    code span.fl { color: #005cc5; } /* Float */
+    code span.fu { color: #6f42c1; } /* Function */
+    code span.im { color: #032f62; } /* Import */
+    code span.in { color: #6a737d; } /* Information */
+    code span.kw { color: #d73a49; } /* Keyword */
+    code span.op { color: #24292e; } /* Operator */
+    code span.ot { color: #6f42c1; } /* Other */
+    code span.pp { color: #d73a49; } /* Preprocessor */
+    code span.re { color: #6a737d; } /* RegionMarker */
+    code span.sc { color: #005cc5; } /* SpecialChar */
+    code span.ss { color: #032f62; } /* SpecialString */
+    code span.st { color: #032f62; } /* String */
+    code span.va { color: #e36209; } /* Variable */
+    code span.vs { color: #032f62; } /* VerbatimString */
+    code span.wa { color: #ff5555; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="style_files/libs/revealjs/dist/theme/quarto-2f366650f320edcfcf53d73c80250a32.css">
+  <link rel="stylesheet" href="style.css">
+  <link href="style_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="style_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="style_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="style_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="style_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="style_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+  
+  <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+
+<section class="slide level2 center">
+
+<!-- 타이틀 슬라이드 내용 -->
+<div style="display: flex; flex-direction: column; align-items: center; gap: 20px;">
+<h1>
+🚦 멈춰! 교통사고!
+</h1>
+<h3>
+3조 - LS빅데이터스쿨
+</h3>
+<img src="photo/Visual.png" width="300">
+<p>
+교통사고, 당신의 데이터는 알고 있다
+</p>
+</div>
+</section>
+<section id="table-of-content" class="slide level2 center">
+<h2>Table of content</h2>
+<ol type="1">
+<li>팀 소개 <br></li>
+<li>프로젝트 개요 <br></li>
+<li>프로젝트 목적 <br></li>
+<li>프로젝트 가설 <br></li>
+<li>분석 진행 및 결과 <br></li>
+</ol>
+</section>
+<section id="팀-소개" class="slide level2 center">
+<h2>📌 팀 소개</h2>
+<ul>
+<li>이름: <strong>3조</strong> 🎓</li>
+<li>구성원: 편서영, 한지수, 오상원, 이창혁</li>
+</ul>
+</section>
+<section id="프로젝트-개요" class="slide level2 center">
+<h2>📊 프로젝트 개요</h2>
+<ul>
+<li>교통사고는 단순한 운전자 실수만의 문제가 아닙니다! 🚗, 🚕, 🚙</li>
+<li>전국 단속카메라 설치정보, 도로 속성, 지역 등을 통합하여 탐색!<br>
+</li>
+<li>데이터는 말합니다 🕵️ 사고는 예방될 수 있습니다!</li>
+</ul>
+</section>
+<section id="프로젝트-목적" class="slide level2 center">
+<h2>🎯 프로젝트 목적</h2>
+<div class="center">
+<p><strong>교통사고 발생건수에 영향을 미치는 요인분석</strong></p>
+</div>
+<div class="center">
+<p><img src="photo/search.png" style="float: right" width="300"></p>
+</div>
+</section>
+<section id="프로젝트-가설-설정" class="slide level2 center">
+<h2>🔍 프로젝트 가설 설정</h2>
+<ol type="1">
+<li><strong>도로 종류</strong>에 따라 사고 건수에 유의미한 차이가 있다.</li>
+<li><strong>각 시도별 사고건수</strong>가 차이가 있을 것이다.</li>
+<li><strong>단속카메라 수</strong>가 사고 건수에 영향을 미칠 것이다.</li>
+<li><strong>도로노선</strong> 유무에 따라 사고 건수 차이가 있을 것이다.</li>
+</ol>
+</section>
+<section id="분석진행" class="slide level2 center">
+<h2>🧪 분석진행</h2>
+
+<img src="photo/Starman.png" style="float: right" width="200" class="r-stretch"></section>
+<section class="slide level2 center">
+
+<ul>
+<li>데이터 출처 및 설명</li>
+</ul>
+<p><img src="photo/교통사고 통계.png" width="900"> <img src="photo/단속카메라.png" width="900"></p>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>데이터 불러오기</li>
+</ul>
+<div id="1bd48492" class="cell" data-execution_count="1">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href=""></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href=""></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href=""></a><span class="im">import</span> matplotlib <span class="im">as</span> mpl</span>
+<span id="cb1-4"><a href=""></a></span>
+<span id="cb1-5"><a href=""></a>mpl.rcParams[<span class="st">'font.family'</span>] <span class="op">=</span> <span class="st">'Malgun Gothic'</span></span>
+<span id="cb1-6"><a href=""></a>camera <span class="op">=</span> pd.read_csv(<span class="st">'../team2/data/camera.csv'</span>)</span>
+<span id="cb1-7"><a href=""></a>accident <span class="op">=</span> pd.read_csv(<span class="st">'../team2/data/accident.csv'</span>, encoding<span class="op">=</span><span class="st">'cp949'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>데이터 정보 확인</li>
+</ul>
+<div id="5f05477e" class="cell" data-execution_count="2">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 27403 entries, 0 to 27402
+Data columns (total 21 columns):
+ #   Column         Non-Null Count  Dtype  
+---  ------         --------------  -----  
+ 0   무인교통단속카메라관리번호  27403 non-null  object 
+ 1   시도명            27403 non-null  object 
+ 2   시군구명           27403 non-null  object 
+ 3   도로종류           27403 non-null  object 
+ 4   도로노선번호         7964 non-null   object 
+ 5   도로노선명          27403 non-null  object 
+ 6   도로노선방향         27403 non-null  int64  
+ 7   소재지도로명주소       11385 non-null  object 
+ 8   소재지지번주소        24525 non-null  object 
+ 9   위도             27403 non-null  float64
+ 10  경도             27403 non-null  float64
+ 11  설치장소           27403 non-null  object 
+ 12  단속구분           27403 non-null  int64  
+ 13  제한속도           27403 non-null  int64  
+ 14  단속구간위치구분       1123 non-null   float64
+ 15  과속단속구간길이       954 non-null    float64
+ 16  보호구역구분         27403 non-null  int64  
+ 17  설치연도           27403 non-null  int64  
+ 18  관리기관명          27403 non-null  object 
+ 19  관리기관전화번호       27403 non-null  object 
+ 20  데이터기준일자        27403 non-null  object 
+dtypes: float64(4), int64(5), object(12)
+memory usage: 4.4+ MB
+None</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>데이터 정보 확인</li>
+</ul>
+<div id="56ead2f0" class="cell" data-execution_count="3">
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 230 entries, 0 to 229
+Data columns (total 7 columns):
+ #   Column  Non-Null Count  Dtype 
+---  ------  --------------  ----- 
+ 0   시도명     230 non-null    object
+ 1   시군구     230 non-null    object
+ 2   사고건수    230 non-null    int64 
+ 3   사망자수    230 non-null    int64 
+ 4   중상자수    230 non-null    int64 
+ 5   경상자수    230 non-null    int64 
+ 6   부상신고자수  230 non-null    int64 
+dtypes: int64(5), object(2)
+memory usage: 12.7+ KB
+None</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>가설 1 분석 진행 : 지역별 대표도로 사고건수 비교</li>
+</ul>
+<div id="e2a37947" class="cell" data-execution_count="4">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'서울'</span>, <span class="st">'서울특별시'</span>)</span>
+<span id="cb4-2"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'부산'</span>, <span class="st">'부산광역시'</span>)</span>
+<span id="cb4-3"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'경기'</span>, <span class="st">'경기도'</span>)</span>
+<span id="cb4-4"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'경남'</span>, <span class="st">'경상남도'</span>)</span>
+<span id="cb4-5"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'전남'</span>, <span class="st">'전라남도'</span>)</span>
+<span id="cb4-6"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'경북'</span>, <span class="st">'경상북도'</span>)</span>
+<span id="cb4-7"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'전북'</span>, <span class="st">'전라북도'</span>)</span>
+<span id="cb4-8"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'대구'</span>, <span class="st">'대구광역시'</span>)</span>
+<span id="cb4-9"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'울산'</span>, <span class="st">'울산광역시'</span>)</span>
+<span id="cb4-10"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'인천'</span>, <span class="st">'인천광역시'</span>)</span>
+<span id="cb4-11"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'제주'</span>, <span class="st">'제주특별자치도'</span>)</span>
+<span id="cb4-12"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'충남'</span>, <span class="st">'충청남도'</span>)</span>
+<span id="cb4-13"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'충북'</span>, <span class="st">'충청북도'</span>)</span>
+<span id="cb4-14"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'강원'</span>, <span class="st">'강원특별자치도'</span>)</span>
+<span id="cb4-15"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'대전'</span>, <span class="st">'대전광역시'</span>)</span>
+<span id="cb4-16"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'세종'</span>, <span class="st">'세종특별자치시'</span>)</span>
+<span id="cb4-17"><a href=""></a>accident[<span class="st">'시도명'</span>] <span class="op">=</span> accident[<span class="st">'시도명'</span>].replace(<span class="st">'광주'</span>, <span class="st">'광주광역시'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="d91d6115" class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href=""></a><span class="co"># 사고 다발 정리</span></span>
+<span id="cb5-2"><a href=""></a>theeshold <span class="op">=</span> accident[<span class="st">'사고건수'</span>].quantile(<span class="fl">0.75</span>)</span>
+<span id="cb5-3"><a href=""></a>accident[<span class="st">'사고다발'</span>] <span class="op">=</span> accident[<span class="st">'사고건수'</span>].<span class="bu">apply</span>(<span class="kw">lambda</span> x: <span class="st">'다발'</span> <span class="cf">if</span> x <span class="op">&gt;=</span> theeshold <span class="cf">else</span> <span class="st">'보통'</span>)</span>
+<span id="cb5-4"><a href=""></a></span>
+<span id="cb5-5"><a href=""></a><span class="co"># 시도 별 대표도로 선정</span></span>
+<span id="cb5-6"><a href=""></a>road_type <span class="op">=</span> camera.groupby(<span class="st">'시도명'</span>)[<span class="st">'도로종류'</span>].agg(<span class="kw">lambda</span> x: x.value_counts().index[<span class="dv">0</span>]).reset_index(name<span class="op">=</span><span class="st">'대표도로종류'</span>)</span>
+<span id="cb5-7"><a href=""></a>road_type <span class="op">=</span> road_type.rename(columns<span class="op">=</span>{<span class="st">'도로종류'</span>: <span class="st">'대표도로종류'</span>})</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>가설 1 분석 진행 : 지역별 대표도로 사고건수 비교</li>
+</ul>
+<div id="6833da5f" class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href=""></a><span class="co"># 데이터 병합</span></span>
+<span id="cb6-2"><a href=""></a>acc_road <span class="op">=</span> pd.merge(road_type, accident, on<span class="op">=</span><span class="st">'시도명'</span>)</span>
+<span id="cb6-3"><a href=""></a></span>
+<span id="cb6-4"><a href=""></a><span class="co"># 도로종류 vs 사고다발</span></span>
+<span id="cb6-5"><a href=""></a>ct <span class="op">=</span> pd.crosstab(acc_road[<span class="st">'대표도로종류'</span>], acc_road[<span class="st">'사고다발'</span>])</span>
+<span id="cb6-6"><a href=""></a></span>
+<span id="cb6-7"><a href=""></a>ct.loc[<span class="st">'일반국도'</span>] <span class="op">=</span> ct.loc[<span class="st">'일반국도'</span>] <span class="op">+</span> ct.loc[<span class="st">'지방도'</span>]</span>
+<span id="cb6-8"><a href=""></a>ct <span class="op">=</span> ct.drop([<span class="st">'지방도'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<div id="79cad8b2" class="cell" data-execution_count="7">
+<div class="cell-output cell-output-display" data-execution_count="101">
+<style type="text/css">
+#T_bb6f3 th {
+  background-color: #f4d9c6;
+  color: #333;
+  text-align: center;
+  font-family: Jua;
+  font-size: 1.1em;
+}
+#T_bb6f3 td {
+  text-align: center;
+  font-family: Jua;
+  padding: 10px;
+}
+#T_bb6f3  {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+#T_bb6f3_row0_col0, #T_bb6f3_row0_col1, #T_bb6f3_row1_col0, #T_bb6f3_row1_col1, #T_bb6f3_row2_col0, #T_bb6f3_row2_col1, #T_bb6f3_row3_col0, #T_bb6f3_row3_col1 {
+  background-color: #fffdf9;
+  border-color: #eee;
+  border-style: solid;
+  border-width: 1px;
+}
+</style>
+
+<div id="T_bb6f3" class="quarto-float quarto-figure quarto-figure-center" data-quarto-postprocess="true">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_bb6f3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: 🚦 대표 도로종류별 사고다발 빈도표
+</figcaption>
+<div aria-describedby="T_bb6f3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_bb6f3" class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="index_name level0" data-quarto-table-cell-role="th">사고다발</th>
+<th id="T_bb6f3_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">다발</th>
+<th id="T_bb6f3_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">보통</th>
+</tr>
+<tr class="even">
+<th class="index_name level0" data-quarto-table-cell-role="th">대표도로종류</th>
+<th class="blank col0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th class="blank col1" data-quarto-table-cell-role="th">&nbsp;</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_bb6f3_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">기타</td>
+<td id="T_bb6f3_row0_col0" class="data row0 col0">13</td>
+<td id="T_bb6f3_row0_col1" class="data row0 col1">37</td>
+</tr>
+<tr class="even">
+<td id="T_bb6f3_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">시도</td>
+<td id="T_bb6f3_row1_col0" class="data row1 col0">25</td>
+<td id="T_bb6f3_row1_col1" class="data row1 col1">74</td>
+</tr>
+<tr class="odd">
+<td id="T_bb6f3_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">일반국도</td>
+<td id="T_bb6f3_row2_col0" class="data row2 col0">6</td>
+<td id="T_bb6f3_row2_col1" class="data row2 col1">36</td>
+</tr>
+<tr class="even">
+<td id="T_bb6f3_level0_row3" class="row_heading level0 row3" data-quarto-table-cell-role="th">특별시도</td>
+<td id="T_bb6f3_row3_col0" class="data row3 col0">13</td>
+<td id="T_bb6f3_row3_col1" class="data row3 col1">12</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>가설 1 분석 진행 : 지역별 대표도로 사고건수 비교</li>
+</ul>
+<div id="47068eee" class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href=""></a><span class="co"># 카이제곱 동질성 검정 진행</span></span>
+<span id="cb7-2"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> chi2_contingency</span>
+<span id="cb7-3"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb7-4"><a href=""></a>chi2, p, dof, exp <span class="op">=</span> chi2_contingency(ct)</span>
+<span id="cb7-5"><a href=""></a></span>
+<span id="cb7-6"><a href=""></a><span class="bu">print</span>(chi2, p, dof)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>11.678710326416384 0.008568853463999705 3</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>카이제곱 동질성 검정 결과</li>
+</ul>
+<p>👉 검정 통계량 (Chi²): <strong>11.68</strong> <br> 👉 자유도 (df): <strong>3</strong> <br> 👉 유의확률 (p-value): <strong>0.008</strong> <br></p>
+<div class="center">
+<p>✅ <strong>차이가 유의미함을 확인!</strong> ✅</p>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>카이제곱 동질성 검정 결과</li>
+</ul>
+<blockquote>
+<p>[!🎯] <strong>대표도로 종류</strong>와 <strong>사고 다발</strong> 사이의 관계가 통계적으로 차이가 있다고 주장할만한 통계적 근거가 충분하다.</p>
+</blockquote>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>대표도로 종류별 사고 건수 분포 박스플롯</li>
+</ul>
+<div id="70eaa59c" class="cell" data-execution_count="9">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href=""></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb9-2"><a href=""></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb9-3"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">6</span>))</span>
+<span id="cb9-4"><a href=""></a>sns.boxplot(x<span class="op">=</span><span class="st">'대표도로종류'</span>, y<span class="op">=</span><span class="st">'사고건수'</span>, data<span class="op">=</span>acc_road, palette<span class="op">=</span><span class="st">'Set2'</span>)</span>
+<span id="cb9-5"><a href=""></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb9-6"><a href=""></a>plt.title(<span class="st">'Distribution of Accident Counts by Road Type'</span>)</span>
+<span id="cb9-7"><a href=""></a>plt.xlabel(<span class="st">'Road Type'</span>)</span>
+<span id="cb9-8"><a href=""></a>plt.ylabel(<span class="st">'Accident Count'</span>)</span>
+<span id="cb9-9"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="style_files/figure-revealjs/cell-10-output-1.png" width="820" height="558"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>대표도로 종류별 사고 다발 비율 그래프</li>
+</ul>
+<div id="624c6f18" class="cell" data-execution_count="10">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href=""></a>ct_norm <span class="op">=</span> ct.div(ct.<span class="bu">sum</span>(axis<span class="op">=</span><span class="dv">1</span>), axis<span class="op">=</span><span class="dv">0</span>)  <span class="co"># 비율로 변환</span></span>
+<span id="cb10-2"><a href=""></a><span class="co"># 비율 데이터프레임을 long-format으로 변환</span></span>
+<span id="cb10-3"><a href=""></a>ct_long <span class="op">=</span> ct_norm.reset_index().melt(id_vars<span class="op">=</span><span class="st">'대표도로종류'</span>, var_name<span class="op">=</span><span class="st">'사고다발'</span>, value_name<span class="op">=</span><span class="st">'비율'</span>)</span>
+<span id="cb10-4"><a href=""></a></span>
+<span id="cb10-5"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb10-6"><a href=""></a>sns.pointplot(data<span class="op">=</span>ct_long, x<span class="op">=</span><span class="st">'대표도로종류'</span>, y<span class="op">=</span><span class="st">'비율'</span>, hue<span class="op">=</span><span class="st">'사고다발'</span>, dodge<span class="op">=</span><span class="fl">0.3</span>, markers<span class="op">=</span><span class="st">'o'</span>, linestyles<span class="op">=</span><span class="st">'-'</span>)</span>
+<span id="cb10-7"><a href=""></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb10-8"><a href=""></a>plt.title(<span class="st">'도로종류별 사고다발/보통 비율'</span>)</span>
+<span id="cb10-9"><a href=""></a>plt.ylabel(<span class="st">'비율'</span>)</span>
+<span id="cb10-10"><a href=""></a>plt.xlabel(<span class="st">'도로종류'</span>)</span>
+<span id="cb10-11"><a href=""></a>plt.tight_layout()</span>
+<span id="cb10-12"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="style_files/figure-revealjs/cell-11-output-1.png" width="950" height="565"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>도로 종류별 사고 다발 비율 그래프</li>
+</ul>
+<div id="d1c339a2" class="cell" data-execution_count="12">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="style_files/figure-revealjs/cell-13-output-1.png" width="950" height="566"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Shapiro-Wilk 검정 결과</li>
+</ul>
+<div id="5621b349" class="cell" data-execution_count="13">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> shapiro</span>
+<span id="cb11-2"><a href=""></a><span class="kw">def</span> check_normality_by_road_type(all_road):</span>
+<span id="cb11-3"><a href=""></a>    <span class="co"># 정규성 검정 결과를 저장할 리스트</span></span>
+<span id="cb11-4"><a href=""></a>    results <span class="op">=</span> []</span>
+<span id="cb11-5"><a href=""></a></span>
+<span id="cb11-6"><a href=""></a>    <span class="co"># 각 도로종류별로 그룹화하여 정규성 검정</span></span>
+<span id="cb11-7"><a href=""></a>    <span class="cf">for</span> name, group <span class="kw">in</span> all_road.groupby(<span class="st">'도로종류'</span>):</span>
+<span id="cb11-8"><a href=""></a>        stat, p <span class="op">=</span> shapiro(group[<span class="st">'사고건수'</span>])</span>
+<span id="cb11-9"><a href=""></a>        result <span class="op">=</span> <span class="st">'정규분포 아님'</span> <span class="cf">if</span> p <span class="op">&lt;</span> <span class="fl">0.05</span> <span class="cf">else</span> <span class="st">'정규분포'</span></span>
+<span id="cb11-10"><a href=""></a>        results.append([name, p, result])</span>
+<span id="cb11-11"><a href=""></a></span>
+<span id="cb11-12"><a href=""></a>    <span class="co"># 결과를 데이터프레임으로 변환</span></span>
+<span id="cb11-13"><a href=""></a>    df_results <span class="op">=</span> pd.DataFrame(results, columns<span class="op">=</span>[<span class="st">'도로종류'</span>, <span class="st">'p-value'</span>, <span class="st">'정규분포 여부'</span>])</span>
+<span id="cb11-14"><a href=""></a>    </span>
+<span id="cb11-15"><a href=""></a>    <span class="co"># 표 출력</span></span>
+<span id="cb11-16"><a href=""></a>    <span class="cf">return</span> df_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="4b46ad44" class="cell" data-execution_count="14">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href=""></a>df_normality <span class="op">=</span> check_normality_by_road_type(all_road)</span>
+<span id="cb12-2"><a href=""></a>df_normality</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="108">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">도로종류</th>
+<th data-quarto-table-cell-role="th">p-value</th>
+<th data-quarto-table-cell-role="th">정규분포 여부</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>고속국도</td>
+<td>6.372202e-78</td>
+<td>정규분포 아님</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>국가지원지방도</td>
+<td>4.453160e-29</td>
+<td>정규분포 아님</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>군도</td>
+<td>8.578405e-119</td>
+<td>정규분포 아님</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>기타</td>
+<td>3.224323e-109</td>
+<td>정규분포 아님</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>시도</td>
+<td>1.458738e-146</td>
+<td>정규분포 아님</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>일반국도</td>
+<td>6.107652e-135</td>
+<td>정규분포 아님</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>지방도</td>
+<td>2.914311e-122</td>
+<td>정규분포 아님</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">7</td>
+<td>특별시도</td>
+<td>4.290432e-124</td>
+<td>정규분포 아님</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Kruskal Wallis H 검정 결과</li>
+</ul>
+<div id="c071963b" class="cell" data-execution_count="15">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> kruskal</span>
+<span id="cb13-2"><a href=""></a></span>
+<span id="cb13-3"><a href=""></a>groups <span class="op">=</span> [g[<span class="st">'사고건수'</span>].values <span class="cf">for</span> _, g <span class="kw">in</span> all_road.groupby(<span class="st">'도로종류'</span>)]</span>
+<span id="cb13-4"><a href=""></a>stat, p <span class="op">=</span> kruskal(<span class="op">*</span>groups)</span>
+<span id="cb13-5"><a href=""></a><span class="bu">print</span>(<span class="st">"Kruskal-Wallis H검정:"</span>, p)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Kruskal-Wallis H검정: 0.0</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Kruskal Wallis H 검정 결과</li>
+</ul>
+<blockquote>
+<p>[!🎯] <strong>도로 종류</strong>와 <strong>사고건수</strong> 사이의 분포 차이가 있다고 주장할만한 통계적 근거가 충분하다.</p>
+</blockquote>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>가설 2 분석 진행 : 각 시도별 사고건수 간 차이 비교</li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>각 지역별 평균 사고건수 확인 및 시각화</li>
+</ul>
+<div id="22157b06" class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href=""></a><span class="co"># 각 지역별 평균 사고건수 확인</span></span>
+<span id="cb15-2"><a href=""></a>accident_avg <span class="op">=</span> accident_df.groupby(<span class="st">'시도명'</span>)[<span class="st">'사고건수'</span>].mean().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>각 지역별 평균 사고건수 확인</li>
+</ul>
+<div id="c1c887d5" class="cell" data-execution_count="18">
+<div class="cell-output cell-output-display" data-execution_count="112">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">시도명</th>
+<th data-quarto-table-cell-role="th">사고건수</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14</td>
+<td>제주</td>
+<td>1975.000000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>경기</td>
+<td>1714.967742</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">6</td>
+<td>대전</td>
+<td>1479.600000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">4</td>
+<td>광주</td>
+<td>1394.400000</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">8</td>
+<td>서울</td>
+<td>1352.440000</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5</td>
+<td>대구</td>
+<td>1208.888889</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">9</td>
+<td>세종</td>
+<td>1166.000000</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>시각화</li>
+</ul>
+<div id="5c9d9488" class="cell" data-execution_count="19">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href=""></a><span class="co"># 각 지역별 사고건수 시각화</span></span>
+<span id="cb16-2"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">6</span>))</span>
+<span id="cb16-3"><a href=""></a>sns.boxplot(data<span class="op">=</span>accident_df, x<span class="op">=</span><span class="st">'시도명'</span>, y<span class="op">=</span><span class="st">'사고건수'</span>, palette<span class="op">=</span><span class="st">'Set3'</span>)</span>
+<span id="cb16-4"><a href=""></a>plt.title(<span class="st">'지역별 사고건수 분포'</span>)</span>
+<span id="cb16-5"><a href=""></a>plt.xlabel(<span class="st">'지역'</span>)</span>
+<span id="cb16-6"><a href=""></a>plt.ylabel(<span class="st">'사고건수'</span>)</span>
+<span id="cb16-7"><a href=""></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb16-8"><a href=""></a>plt.tight_layout()</span>
+<span id="cb16-9"><a href=""></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb16-10"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="style_files/figure-revealjs/cell-20-output-1.png" width="1142" height="565"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>그래프 비교 결과</li>
+</ul>
+<blockquote>
+<p>[!🎯] 지역별 평균 사고건수에 <strong>차이가 있을 가능성이 높아 보임</strong>!</p>
+</blockquote>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>ANOVA 검정</li>
+</ul>
+<div id="6a20b0da" class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href=""></a><span class="co"># 각 시고별 평균 사고건수 비교: ANOVA 테이블</span></span>
+<span id="cb17-2"><a href=""></a><span class="im">import</span> statsmodels.api <span class="im">as</span> sm</span>
+<span id="cb17-3"><a href=""></a><span class="im">from</span> statsmodels.formula.api <span class="im">import</span> ols</span>
+<span id="cb17-4"><a href=""></a></span>
+<span id="cb17-5"><a href=""></a>model <span class="op">=</span> ols(<span class="st">'사고건수 ~ C(시도명)'</span>, data<span class="op">=</span>accident_df).fit()</span>
+<span id="cb17-6"><a href=""></a></span>
+<span id="cb17-7"><a href=""></a>anova_results <span class="op">=</span> sm.stats.anova_lm(model, typ<span class="op">=</span><span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>👉 H0: 각 지역별 평균 사고건수가 같다. <br> 👉 H1: 각 지역별 평균 사고건수가 적어도 하나는 다르다.</p>
+</section>
+<section class="slide level2 center">
+
+<div id="106a5989" class="cell" data-execution_count="21">
+<div class="cell-output cell-output-display" data-execution_count="115">
+<style type="text/css">
+#T_4759c th {
+  background-color: #f4d9c6;
+  color: #333;
+  text-align: center;
+  font-family: Jua;
+  font-size: 1.1em;
+}
+#T_4759c td {
+  text-align: center;
+  font-family: Jua;
+  padding: 10px;
+}
+#T_4759c  {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+</style>
+
+<div id="T_4759c" class="quarto-float quarto-figure quarto-figure-center" data-quarto-postprocess="true">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_4759c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: 🚦 ANOVA 분석 결과표
+</figcaption>
+<div aria-describedby="T_4759c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_4759c" class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_4759c_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">sum_sq</th>
+<th id="T_4759c_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">df</th>
+<th id="T_4759c_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">F</th>
+<th id="T_4759c_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">PR(&gt;F)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_4759c_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">C(시도명)</td>
+<td id="T_4759c_row0_col0" class="data row0 col0">55213437.753574</td>
+<td id="T_4759c_row0_col1" class="data row0 col1">16.000000</td>
+<td id="T_4759c_row0_col2" class="data row0 col2">5.600300</td>
+<td id="T_4759c_row0_col3" class="data row0 col3">0.000000</td>
+</tr>
+<tr class="even">
+<td id="T_4759c_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">Residual</td>
+<td id="T_4759c_row1_col0" class="data row1 col0">131248122.611644</td>
+<td id="T_4759c_row1_col1" class="data row1 col1">213.000000</td>
+<td id="T_4759c_row1_col2" class="data row1 col2">nan</td>
+<td id="T_4759c_row1_col3" class="data row1 col3">nan</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>ANOVA 검정 결과</li>
+</ul>
+<blockquote>
+<p>[!🎯] 각 시도별 평균 사고건수가 적어도 하나는 <strong>다르다</strong>라고 주장할만한 통계적 근거가 충분하다.</p>
+</blockquote>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Kruskal Wallis H 검정 진행</li>
+</ul>
+<div id="3cd49a0c" class="cell" data-execution_count="22">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> kruskal</span>
+<span id="cb18-2"><a href=""></a></span>
+<span id="cb18-3"><a href=""></a>grouped_values <span class="op">=</span> [group[<span class="st">'사고건수'</span>].values <span class="cf">for</span> _, group <span class="kw">in</span> accident_df.groupby(<span class="st">'시도명'</span>)]</span>
+<span id="cb18-4"><a href=""></a>stat, p <span class="op">=</span> kruskal(<span class="op">*</span>grouped_values)</span>
+<span id="cb18-5"><a href=""></a>stat, p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="116">
+<pre><code>(89.2757873932235, 3.4006688531866835e-12)</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Kruskal Wallis H 검정 결과</li>
+</ul>
+<blockquote>
+<p>[!🎯] 각 지역별 평균 사고건수의 중앙값이 적어도 하나는 <strong>다르다</strong>고 주장할 통계적 근거가 충분하다!</p>
+</blockquote>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>사후검정 : Dunn’s test 시각화</li>
+</ul>
+<div id="8ee38412" class="cell" data-execution_count="23">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href=""></a><span class="im">import</span> scikit_posthocs <span class="im">as</span> sp_post</span>
+<span id="cb20-2"><a href=""></a></span>
+<span id="cb20-3"><a href=""></a>posthoc <span class="op">=</span> sp_post.posthoc_dunn(accident, val_col<span class="op">=</span><span class="st">'사고건수'</span>, group_col<span class="op">=</span><span class="st">'시도명'</span>, p_adjust<span class="op">=</span><span class="st">'bonferroni'</span>)</span>
+<span id="cb20-4"><a href=""></a><span class="co"># Bonferroni 수정을 통해 가설 검정의 유의수준을 조정</span></span>
+<span id="cb20-5"><a href=""></a></span>
+<span id="cb20-6"><a href=""></a><span class="co"># 시각화</span></span>
+<span id="cb20-7"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">7</span>))</span>
+<span id="cb20-8"><a href=""></a>sns.heatmap(posthoc, </span>
+<span id="cb20-9"><a href=""></a>            annot<span class="op">=</span><span class="va">True</span>, </span>
+<span id="cb20-10"><a href=""></a>            fmt<span class="op">=</span><span class="st">".3f"</span>, </span>
+<span id="cb20-11"><a href=""></a>            cmap<span class="op">=</span><span class="st">"coolwarm_r"</span>, </span>
+<span id="cb20-12"><a href=""></a>            cbar_kws<span class="op">=</span>{<span class="st">'label'</span>: <span class="st">'p-value'</span>}, </span>
+<span id="cb20-13"><a href=""></a>            linewidths<span class="op">=</span><span class="fl">0.5</span>,</span>
+<span id="cb20-14"><a href=""></a>            square<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb20-15"><a href=""></a>plt.title(<span class="st">"Dunn’s Test: 지역 간 사고건수 차이 (p-value heatmap)"</span>)</span>
+<span id="cb20-16"><a href=""></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb20-17"><a href=""></a>plt.yticks(rotation<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb20-18"><a href=""></a>plt.tight_layout()</span>
+<span id="cb20-19"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="style_files/figure-revealjs/cell-24-output-1.png" width="776" height="662"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>가설 3 분석 진행 : 단속카메라 수는 사고 건수 비교</li>
+</ul>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>단속카메라 설치 수에 따른 시도별 사고건수 평균 비교</li>
+</ul>
+
+<img src="photo/gdfgrape.png" style="float: right" width="300" class="r-stretch"><div id="be98da2f" class="cell" data-execution_count="25">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href=""></a><span class="im">import</span> geopandas <span class="im">as</span> gpd</span>
+<span id="cb21-2"><a href=""></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb21-3"><a href=""></a><span class="im">import</span> plotly.graph_objects <span class="im">as</span> go</span>
+<span id="cb21-4"><a href=""></a></span>
+<span id="cb21-5"><a href=""></a><span class="co"># geopandas로 shp 파일 불러오기</span></span>
+<span id="cb21-6"><a href=""></a>gdf <span class="op">=</span> gpd.read_file(<span class="st">'../team2/data/BND_SIDO_PG.shp'</span>)</span>
+<span id="cb21-7"><a href=""></a><span class="bu">print</span>(gdf.crs) <span class="co"># 좌표계 확인</span></span>
+<span id="cb21-8"><a href=""></a></span>
+<span id="cb21-9"><a href=""></a>gdf <span class="op">=</span> gdf.to_crs(epsg<span class="op">=</span><span class="dv">4326</span>) <span class="co"># WGS84 (4326) 좌표계로 변환</span></span>
+<span id="cb21-10"><a href=""></a></span>
+<span id="cb21-11"><a href=""></a></span>
+<span id="cb21-12"><a href=""></a><span class="co"># GeoJSON 파일로 저장 </span></span>
+<span id="cb21-13"><a href=""></a>gdf.to_file(<span class="st">'../team2/data/BND_SIDO_PG.geojson'</span>, driver<span class="op">=</span><span class="st">'GeoJSON'</span>)</span>
+<span id="cb21-14"><a href=""></a></span>
+<span id="cb21-15"><a href=""></a><span class="co"># geojson 파일 불러오기 </span></span>
+<span id="cb21-16"><a href=""></a><span class="im">import</span> json</span>
+<span id="cb21-17"><a href=""></a><span class="cf">with</span> <span class="bu">open</span>(<span class="st">'../team2/data/BND_SIDO_PG.geojson'</span>, encoding<span class="op">=</span><span class="st">'utf-8'</span>) <span class="im">as</span> f:</span>
+<span id="cb21-18"><a href=""></a>    geojson_data <span class="op">=</span> json.load(f)</span>
+<span id="cb21-19"><a href=""></a><span class="bu">print</span>(geojson_data.keys()) <span class="co"># 확인 용도 </span></span>
+<span id="cb21-20"><a href=""></a><span class="bu">print</span>(geojson_data[<span class="st">'features'</span>][<span class="dv">1</span>][<span class="st">'properties'</span>]) <span class="co"># 확인 용도</span></span>
+<span id="cb21-21"><a href=""></a></span>
+<span id="cb21-22"><a href=""></a><span class="co"># 카메라 데이터에서 groupby로 시도별 카메라 수 집계한 DataFrame 생성</span></span>
+<span id="cb21-23"><a href=""></a>agg_cam <span class="op">=</span> camera.groupby(<span class="st">'시도명'</span>,as_index<span class="op">=</span><span class="va">False</span>)[<span class="st">'무인교통단속카메라관리번호'</span>].count()</span>
+<span id="cb21-24"><a href=""></a>agg_cam.columns <span class="op">=</span> [<span class="st">'SIDO_NM'</span>,<span class="st">'카메라합계'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div id="5be3ce77" class="cell" data-execution_count="26">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb22-1"><a href=""></a><span class="co"># plotly 로 지도 시각화 </span></span>
+<span id="cb22-2"><a href=""></a>fig <span class="op">=</span> px.choropleth_mapbox(</span>
+<span id="cb22-3"><a href=""></a>agg_cam,</span>
+<span id="cb22-4"><a href=""></a>geojson<span class="op">=</span>geojson_data,</span>
+<span id="cb22-5"><a href=""></a>locations<span class="op">=</span><span class="st">"SIDO_NM"</span>,</span>
+<span id="cb22-6"><a href=""></a>featureidkey<span class="op">=</span><span class="st">"properties.SIDO_NM"</span>,</span>
+<span id="cb22-7"><a href=""></a>color<span class="op">=</span><span class="st">"카메라합계"</span>,</span>
+<span id="cb22-8"><a href=""></a>color_continuous_scale<span class="op">=</span><span class="st">"Blues"</span>,</span>
+<span id="cb22-9"><a href=""></a>mapbox_style<span class="op">=</span><span class="st">"carto-positron"</span>,</span>
+<span id="cb22-10"><a href=""></a>center<span class="op">=</span>{<span class="st">"lat"</span>: <span class="fl">37.5665</span>, <span class="st">"lon"</span>: <span class="fl">126.9780</span>},</span>
+<span id="cb22-11"><a href=""></a>zoom<span class="op">=</span><span class="dv">5</span>,</span>
+<span id="cb22-12"><a href=""></a>opacity<span class="op">=</span><span class="dv">1</span>,</span>
+<span id="cb22-13"><a href=""></a>title<span class="op">=</span><span class="st">"시도 별 카메라 수"</span>,</span>
+<span id="cb22-14"><a href=""></a>)</span>
+<span id="cb22-15"><a href=""></a>fig.update_layout(margin<span class="op">=</span>{<span class="st">"r"</span>:<span class="dv">0</span>,<span class="st">"t"</span>:<span class="dv">30</span>,<span class="st">"l"</span>:<span class="dv">0</span>,<span class="st">"b"</span>:<span class="dv">0</span>})</span>
+<span id="cb22-16"><a href=""></a>fig.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section class="slide level2 center">
+
+<div id="0675fd86" class="cell" data-execution_count="27">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href=""></a><span class="co"># 컬럼명 통일0</span></span>
+<span id="cb23-2"><a href=""></a>camera_count <span class="op">=</span> c_df.groupby([<span class="st">'시도명'</span>, <span class="st">'시군구명'</span>]).size().reset_index(name<span class="op">=</span><span class="st">'단속카메라수'</span>)</span>
+<span id="cb23-3"><a href=""></a>camera_count.rename(columns<span class="op">=</span>{<span class="st">'시군구명'</span>: <span class="st">'시군구'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb23-4"><a href=""></a></span>
+<span id="cb23-5"><a href=""></a><span class="co"># 사고건수와 병합</span></span>
+<span id="cb23-6"><a href=""></a>camera_merged_df <span class="op">=</span> pd.merge(camera_count, accident_df.groupby([<span class="st">'시도명'</span>, <span class="st">'시군구'</span>])[<span class="st">'사고건수'</span>].<span class="bu">sum</span>().reset_index(), on<span class="op">=</span>[<span class="st">'시도명'</span>, <span class="st">'시군구'</span>])</span>
+<span id="cb23-7"><a href=""></a></span>
+<span id="cb23-8"><a href=""></a></span>
+<span id="cb23-9"><a href=""></a><span class="co"># 사분위수 기반 그룹 나누기 (많음/ 보통/ 적음)</span></span>
+<span id="cb23-10"><a href=""></a>q1 <span class="op">=</span> camera_merged_df[<span class="st">'단속카메라수'</span>].quantile(<span class="fl">0.25</span>)</span>
+<span id="cb23-11"><a href=""></a>q3 <span class="op">=</span> camera_merged_df[<span class="st">'단속카메라수'</span>].quantile(<span class="fl">0.75</span>)</span>
+<span id="cb23-12"><a href=""></a></span>
+<span id="cb23-13"><a href=""></a><span class="kw">def</span> classify_group(x):</span>
+<span id="cb23-14"><a href=""></a>    <span class="cf">if</span> x <span class="op">&lt;=</span> q1:</span>
+<span id="cb23-15"><a href=""></a>        <span class="cf">return</span> <span class="st">'적음'</span></span>
+<span id="cb23-16"><a href=""></a>    <span class="cf">elif</span> x <span class="op">&gt;=</span> q3:</span>
+<span id="cb23-17"><a href=""></a>        <span class="cf">return</span> <span class="st">'많음'</span></span>
+<span id="cb23-18"><a href=""></a>    <span class="cf">else</span>:</span>
+<span id="cb23-19"><a href=""></a>        <span class="cf">return</span> <span class="st">'보통'</span></span>
+<span id="cb23-20"><a href=""></a></span>
+<span id="cb23-21"><a href=""></a>camera_merged_df[<span class="st">'그룹'</span>] <span class="op">=</span> camera_merged_df[<span class="st">'단속카메라수'</span>].<span class="bu">apply</span>(classify_group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<div id="b4be19ff" class="cell" data-execution_count="28">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb24-1"><a href=""></a><span class="co"># Boxplot 시각화: 각 그룹의 사고건수 분포와 중앙값 차이</span></span>
+<span id="cb24-2"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">8</span>,<span class="dv">5</span>))</span>
+<span id="cb24-3"><a href=""></a>sns.boxplot(x<span class="op">=</span><span class="st">'그룹'</span>, y<span class="op">=</span><span class="st">'사고건수'</span>, data<span class="op">=</span>camera_merged_df, palette<span class="op">=</span><span class="st">'pastel'</span>)</span>
+<span id="cb24-4"><a href=""></a>plt.title(<span class="st">'단속카메라 수 그룹별 사고건수 분포'</span>)</span>
+<span id="cb24-5"><a href=""></a>plt.xlabel(<span class="st">'단속카메라 수 그룹'</span>)</span>
+<span id="cb24-6"><a href=""></a>plt.ylabel(<span class="st">'사고건수'</span>)</span>
+<span id="cb24-7"><a href=""></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb24-8"><a href=""></a>plt.tight_layout()</span>
+<span id="cb24-9"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="style_files/figure-revealjs/cell-29-output-1.png" width="758" height="469"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>ANOVA 검정 진행</li>
+</ul>
+<div id="2adc03b6" class="cell" data-execution_count="29">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> f_oneway</span>
+<span id="cb25-2"><a href=""></a></span>
+<span id="cb25-3"><a href=""></a>group_적음 <span class="op">=</span> camera_merged_df[camera_merged_df[<span class="st">'그룹'</span>] <span class="op">==</span> <span class="st">'적음'</span>][<span class="st">'사고건수'</span>]</span>
+<span id="cb25-4"><a href=""></a>group_보통 <span class="op">=</span> camera_merged_df[camera_merged_df[<span class="st">'그룹'</span>] <span class="op">==</span> <span class="st">'보통'</span>][<span class="st">'사고건수'</span>]</span>
+<span id="cb25-5"><a href=""></a>group_많음 <span class="op">=</span> camera_merged_df[camera_merged_df[<span class="st">'그룹'</span>] <span class="op">==</span> <span class="st">'많음'</span>][<span class="st">'사고건수'</span>]</span>
+<span id="cb25-6"><a href=""></a></span>
+<span id="cb25-7"><a href=""></a>f_stat, p_value <span class="op">=</span> f_oneway(group_적음, group_보통, group_많음)</span>
+<span id="cb25-8"><a href=""></a><span class="co"># p-value &lt; 0.05, 귀무가설 기각</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<div id="084e2ca5" class="cell" data-execution_count="30">
+<div class="cell-output cell-output-display" data-execution_count="122">
+<style type="text/css">
+#T_1792c th {
+  background-color: #f4d9c6;
+  color: #333;
+  text-align: center;
+  font-family: Jua;
+  font-size: 1.1em;
+}
+#T_1792c td {
+  text-align: center;
+  font-family: Jua;
+  padding: 10px;
+}
+#T_1792c  {
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}
+</style>
+
+<div id="T_1792c" class="quarto-float quarto-figure quarto-figure-center" data-quarto-postprocess="true">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_1792c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;3: 🚦 ANOVA 분석 결과표
+</figcaption>
+<div aria-describedby="T_1792c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_1792c" class="caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_1792c_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">F-통계량</th>
+<th id="T_1792c_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">p-값</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_1792c_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
+<td id="T_1792c_row0_col0" class="data row0 col0">43.666575</td>
+<td id="T_1792c_row0_col1" class="data row0 col1">0.000000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</figure>
+</div>
+</div>
+</div>
+<p>👉 H0: 세 그룹의 모집단 평균은 모두 같다. (차이가 우연에 의한 것)<br> 👉 H1: 세 그룹 중 적어도 하나는 평균이 다르다.</p>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Shapiro-Wilk / Levene 검정 결과</li>
+</ul>
+<div id="1d90f892" class="cell" data-execution_count="31">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb26-1"><a href=""></a>results <span class="op">=</span> []</span>
+<span id="cb26-2"><a href=""></a><span class="co"># shapiro: 정규성 검정</span></span>
+<span id="cb26-3"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> shapiro</span>
+<span id="cb26-4"><a href=""></a></span>
+<span id="cb26-5"><a href=""></a><span class="cf">for</span> name, group <span class="kw">in</span> <span class="bu">zip</span>([<span class="st">'적음'</span>, <span class="st">'보통'</span>, <span class="st">'많음'</span>], [group_적음, group_보통, group_많음]):</span>
+<span id="cb26-6"><a href=""></a>    stat, p <span class="op">=</span> shapiro(group)</span>
+<span id="cb26-7"><a href=""></a>    norm_check <span class="op">=</span> <span class="st">'정규분포 O'</span> <span class="cf">if</span> p <span class="op">&gt;</span> <span class="fl">0.05</span> <span class="cf">else</span> <span class="st">'정규분포 X'</span></span>
+<span id="cb26-8"><a href=""></a>    results.append([name, <span class="bu">round</span>(p, <span class="dv">4</span>), norm_check])</span>
+<span id="cb26-9"><a href=""></a></span>
+<span id="cb26-10"><a href=""></a><span class="co"># Levene: 등분산성 검정</span></span>
+<span id="cb26-11"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> levene</span>
+<span id="cb26-12"><a href=""></a></span>
+<span id="cb26-13"><a href=""></a>stat, p <span class="op">=</span> levene(group_적음, group_보통, group_많음)</span>
+<span id="cb26-14"><a href=""></a>equal_check <span class="op">=</span> <span class="st">'등분산 O'</span> <span class="cf">if</span> p <span class="op">&gt;</span> <span class="fl">0.05</span> <span class="cf">else</span> <span class="st">'등분산 X'</span></span>
+<span id="cb26-15"><a href=""></a>results.append([<span class="st">'등분산성 검정'</span>, <span class="bu">round</span>(p, <span class="dv">4</span>), equal_check])</span>
+<span id="cb26-16"><a href=""></a></span>
+<span id="cb26-17"><a href=""></a>df_results <span class="op">=</span> pd.DataFrame(results, columns<span class="op">=</span>[<span class="st">'그룹'</span>, <span class="st">'p-value'</span>, <span class="st">'여부'</span>])</span>
+<span id="cb26-18"><a href=""></a></span>
+<span id="cb26-19"><a href=""></a>df_results</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="123">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">그룹</th>
+<th data-quarto-table-cell-role="th">p-value</th>
+<th data-quarto-table-cell-role="th">여부</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>적음</td>
+<td>0.0000</td>
+<td>정규분포 X</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>보통</td>
+<td>0.0000</td>
+<td>정규분포 X</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>많음</td>
+<td>0.0003</td>
+<td>정규분포 X</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>등분산성 검정</td>
+<td>0.0000</td>
+<td>등분산 X</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Kruskal Wallis H 검정 진행</li>
+</ul>
+<div id="3960dcbd" class="cell" data-execution_count="32">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb27-1"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> kruskal</span>
+<span id="cb27-2"><a href=""></a></span>
+<span id="cb27-3"><a href=""></a>h_stat, p_value <span class="op">=</span> kruskal(group_적음, group_보통, group_많음)</span>
+<span id="cb27-4"><a href=""></a><span class="bu">print</span>(<span class="ss">f"Kruskal-Wallis H 검정 통계량: </span><span class="sc">{</span>h_stat<span class="sc">:.3f}</span><span class="ss">, p-value: </span><span class="sc">{</span>p_value<span class="sc">:.4f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Kruskal-Wallis H 검정 통계량: 71.014, p-value: 0.0000</code></pre>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Kruskal Wallis H 검정 결과</li>
+</ul>
+<blockquote>
+<p>[!🎯] 세 그룹의 중앙값이 적어도 하나는 <strong>다르다</strong> 주장할 통계적 근거가 충분하다!</p>
+</blockquote>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>사후검정 : Dunn’s test</li>
+</ul>
+<div id="05a03be9" class="cell" data-execution_count="33">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb29-1"><a href=""></a><span class="im">import</span> scikit_posthocs <span class="im">as</span> sp</span>
+<span id="cb29-2"><a href=""></a></span>
+<span id="cb29-3"><a href=""></a>dunn_result <span class="op">=</span> sp.posthoc_dunn(camera_merged_df, val_col<span class="op">=</span><span class="st">'사고건수'</span>, group_col<span class="op">=</span><span class="st">'그룹'</span>, p_adjust<span class="op">=</span><span class="st">'bonferroni'</span>)</span>
+<span id="cb29-4"><a href=""></a></span>
+<span id="cb29-5"><a href=""></a><span class="co"># 결과를 쌍별 비교 형식으로 변환</span></span>
+<span id="cb29-6"><a href=""></a>pairs <span class="op">=</span> []</span>
+<span id="cb29-7"><a href=""></a><span class="cf">for</span> i, group_a <span class="kw">in</span> <span class="bu">enumerate</span>(dunn_result.index):</span>
+<span id="cb29-8"><a href=""></a>    <span class="cf">for</span> j, group_b <span class="kw">in</span> <span class="bu">enumerate</span>(dunn_result.columns):</span>
+<span id="cb29-9"><a href=""></a>        <span class="cf">if</span> i <span class="op">&lt;</span> j:  <span class="co"># 중복 제거 (한 번만 비교)</span></span>
+<span id="cb29-10"><a href=""></a>            pairs.append({</span>
+<span id="cb29-11"><a href=""></a>                <span class="st">'그룹 A'</span>: group_a,</span>
+<span id="cb29-12"><a href=""></a>                <span class="st">'그룹 B'</span>: group_b,</span>
+<span id="cb29-13"><a href=""></a>                <span class="st">'p-value'</span>: dunn_result.iloc[i, j]</span>
+<span id="cb29-14"><a href=""></a>            })</span>
+<span id="cb29-15"><a href=""></a></span>
+<span id="cb29-16"><a href=""></a><span class="co"># 정리된 데이터프레임 만들기</span></span>
+<span id="cb29-17"><a href=""></a>dunn_pairs_df <span class="op">=</span> pd.DataFrame(pairs)</span>
+<span id="cb29-18"><a href=""></a></span>
+<span id="cb29-19"><a href=""></a>dunn_pairs_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display" data-execution_count="125">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">그룹 A</th>
+<th data-quarto-table-cell-role="th">그룹 B</th>
+<th data-quarto-table-cell-role="th">p-value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>많음</td>
+<td>보통</td>
+<td>1.598669e-07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>많음</td>
+<td>적음</td>
+<td>1.399293e-16</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>보통</td>
+<td>적음</td>
+<td>6.733709e-05</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>가설 4 분석 진행 : 도로노선 유무는 따라 사고 건수 차이 비교</li>
+</ul>
+<div id="6e3b6912" class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb30-1"><a href=""></a><span class="co"># 도로노선번호가 존재하는 경우만 True, 아니면 False</span></span>
+<span id="cb30-2"><a href=""></a>c_df[<span class="st">'도로노선있음'</span>] <span class="op">=</span> c_df[<span class="st">'도로노선번호'</span>].notna()</span>
+<span id="cb30-3"><a href=""></a></span>
+<span id="cb30-4"><a href=""></a><span class="co"># 시군구별 도로노선 유무 중 가장 많은 상태값 기준</span></span>
+<span id="cb30-5"><a href=""></a>roadline_status <span class="op">=</span> c_df.groupby([<span class="st">'시도명'</span>, <span class="st">'시군구명'</span>])[<span class="st">'도로노선있음'</span>] <span class="op">\</span></span>
+<span id="cb30-6"><a href=""></a>                      .agg(<span class="kw">lambda</span> x: x.value_counts().index[<span class="dv">0</span>]) <span class="op">\</span></span>
+<span id="cb30-7"><a href=""></a>                      .reset_index(name<span class="op">=</span><span class="st">'도로노선유무'</span>)</span>
+<span id="cb30-8"><a href=""></a></span>
+<span id="cb30-9"><a href=""></a>roadline_status.rename(columns<span class="op">=</span>{<span class="st">'시군구명'</span>: <span class="st">'시군구'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb30-10"><a href=""></a></span>
+<span id="cb30-11"><a href=""></a>accident_with_roadline <span class="op">=</span> pd.merge(</span>
+<span id="cb30-12"><a href=""></a>    accident_df[[<span class="st">'시도명'</span>, <span class="st">'시군구'</span>, <span class="st">'사고건수'</span>]],</span>
+<span id="cb30-13"><a href=""></a>    roadline_status,</span>
+<span id="cb30-14"><a href=""></a>    on<span class="op">=</span>[<span class="st">'시도명'</span>, <span class="st">'시군구'</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<div id="343f9fe1" class="cell" data-execution_count="35">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href=""></a>accident_with_roadline[<span class="st">'도로노선유무'</span>] <span class="op">=</span> accident_with_roadline[<span class="st">'도로노선유무'</span>].<span class="bu">map</span>({<span class="va">True</span>: <span class="st">'있음'</span>, <span class="va">False</span>: <span class="st">'없음'</span>})</span>
+<span id="cb31-2"><a href=""></a></span>
+<span id="cb31-3"><a href=""></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">4</span>))</span>
+<span id="cb31-4"><a href=""></a>sns.boxplot(data<span class="op">=</span>accident_with_roadline, x<span class="op">=</span><span class="st">'도로노선유무'</span>, y<span class="op">=</span><span class="st">'사고건수'</span>, palette<span class="op">=</span><span class="st">'Set3'</span>)</span>
+<span id="cb31-5"><a href=""></a>plt.title(<span class="st">'도로노선 유무에 따른 사고건수 분포'</span>)</span>
+<span id="cb31-6"><a href=""></a>plt.xlabel(<span class="st">'도로노선 유무'</span>)</span>
+<span id="cb31-7"><a href=""></a>plt.ylabel(<span class="st">'사고건수'</span>)</span>
+<span id="cb31-8"><a href=""></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb31-9"><a href=""></a>plt.tight_layout()</span>
+<span id="cb31-10"><a href=""></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="style_files/figure-revealjs/cell-36-output-1.png" width="566" height="373"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>독립 2표본 T 검정</li>
+</ul>
+<div id="ebb316b9" class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb32-1"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> shapiro, ttest_ind, mannwhitneyu</span>
+<span id="cb32-2"><a href=""></a></span>
+<span id="cb32-3"><a href=""></a>group_with <span class="op">=</span> accident_with_roadline[accident_with_roadline[<span class="st">'도로노선유무'</span>] <span class="op">==</span> <span class="st">'있음'</span>][<span class="st">'사고건수'</span>]</span>
+<span id="cb32-4"><a href=""></a>group_without <span class="op">=</span> accident_with_roadline[accident_with_roadline[<span class="st">'도로노선유무'</span>] <span class="op">==</span> <span class="st">'없음'</span>][<span class="st">'사고건수'</span>]</span>
+<span id="cb32-5"><a href=""></a></span>
+<span id="cb32-6"><a href=""></a>t_stat, p_value <span class="op">=</span> ttest_ind(group_with, group_without, equal_var<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb32-7"><a href=""></a></span>
+<span id="cb32-8"><a href=""></a>results <span class="op">=</span> t_stat, p_value</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>독립 2표본 T 검정</li>
+</ul>
+<div id="e0c1441f" class="cell" data-execution_count="37">
+<div class="cell-output cell-output-display" data-execution_count="129">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">비교 항목</th>
+<th data-quarto-table-cell-role="th">p_value</th>
+<th data-quarto-table-cell-role="th">여부</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>도로노선 유무에 따른 사고건수 비교</td>
+<td>0.000</td>
+<td>차이 있음</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Shaprio-Wilk 검정 / Mann-Whitney U 검정</li>
+</ul>
+<div id="d69f0978" class="cell" data-execution_count="38">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> shapiro, ttest_ind, mannwhitneyu</span>
+<span id="cb33-2"><a href=""></a></span>
+<span id="cb33-3"><a href=""></a>stat, p <span class="op">=</span> shapiro(group_with)</span>
+<span id="cb33-4"><a href=""></a>out_stat, out_p <span class="op">=</span> shapiro(group_without)</span>
+<span id="cb33-5"><a href=""></a></span>
+<span id="cb33-6"><a href=""></a>stat, p <span class="op">=</span> mannwhitneyu(group_with, group_without)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Shaprio-Wilk 검정 / Mann-Whitney U 검정</li>
+</ul>
+<div id="9c515b19" class="cell" data-execution_count="39">
+<div class="cell-output cell-output-display" data-execution_count="131">
+<style type="text/css">
+</style>
+
+<table id="T_891c7" class="styled-table caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_891c7_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">도로노선유무 / 검정</th>
+<th id="T_891c7_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">p-value</th>
+<th id="T_891c7_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">판정</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_891c7_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
+<td id="T_891c7_row0_col0" class="data row0 col0">도로노선 있음</td>
+<td id="T_891c7_row0_col1" class="data row0 col1">0.000000</td>
+<td id="T_891c7_row0_col2" class="data row0 col2">정규분포 아님</td>
+</tr>
+<tr class="even">
+<td id="T_891c7_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
+<td id="T_891c7_row1_col0" class="data row1 col0">도로노선 없음</td>
+<td id="T_891c7_row1_col1" class="data row1 col1">0.000000</td>
+<td id="T_891c7_row1_col2" class="data row1 col2">정규분포 아님</td>
+</tr>
+<tr class="odd">
+<td id="T_891c7_level0_row2" class="row_heading level0 row2" data-quarto-table-cell-role="th">2</td>
+<td id="T_891c7_row2_col0" class="data row2 col0">Mann-Whitney U 검정</td>
+<td id="T_891c7_row2_col1" class="data row2 col1">0.000000</td>
+<td id="T_891c7_row2_col2" class="data row2 col2">유의한 차이 있음</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Levene 검정 / Brunner Munzel 검정</li>
+</ul>
+<div id="cb5d0f89" class="cell" data-execution_count="40">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb34-1"><a href=""></a><span class="co"># 등분산성 검정</span></span>
+<span id="cb34-2"><a href=""></a><span class="im">from</span> scipy.stats <span class="im">import</span> levene</span>
+<span id="cb34-3"><a href=""></a>stat, p <span class="op">=</span> levene(group_with, group_without)</span>
+<span id="cb34-4"><a href=""></a></span>
+<span id="cb34-5"><a href=""></a><span class="im">from</span> scipy.stats.mstats <span class="im">import</span> brunnermunzel</span>
+<span id="cb34-6"><a href=""></a>stat, pvalue <span class="op">=</span> brunnermunzel(group_with, group_without, alternative<span class="op">=</span><span class="st">'two-sided'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Levene 검정 / Brunner Munzel 검정</li>
+</ul>
+<div id="0b593971" class="cell" data-execution_count="41">
+<div class="cell-output cell-output-display" data-execution_count="133">
+<style type="text/css">
+</style>
+
+<table id="T_d3745" class="styled-table caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_d3745_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">검정</th>
+<th id="T_d3745_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">p-value</th>
+<th id="T_d3745_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">판정</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_d3745_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
+<td id="T_d3745_row0_col0" class="data row0 col0">Levene</td>
+<td id="T_d3745_row0_col1" class="data row0 col1">0.000000</td>
+<td id="T_d3745_row0_col2" class="data row0 col2">등분산 아님</td>
+</tr>
+<tr class="even">
+<td id="T_d3745_level0_row1" class="row_heading level0 row1" data-quarto-table-cell-role="th">1</td>
+<td id="T_d3745_row1_col0" class="data row1 col0">BM</td>
+<td id="T_d3745_row1_col1" class="data row1 col1">0.000000</td>
+<td id="T_d3745_row1_col2" class="data row1 col2">분포위치 동일 X</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>Brunner Munzel 검정 결과</li>
+</ul>
+<blockquote>
+<p>[!🎯] 두 그룹 간의 중앙값에 유의미한 차이가 있다고 주장할만한 통계적 근거가 충분하다. <br> 즉, <strong>도로노선 유무</strong>에 따라 <strong>사고 건수 분포</strong>에 통계적으로 유의미한 차이가 존재하다 주장 가능함!</p>
+</blockquote>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>회귀모델 분석 진행</li>
+</ul>
+<div id="3b10b94b" class="cell" data-execution_count="42">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href=""></a>camera[<span class="st">'도로노선있음'</span>] <span class="op">=</span> camera[<span class="st">'도로노선번호'</span>].notna()</span>
+<span id="cb35-2"><a href=""></a>camera.rename(columns<span class="op">=</span>{<span class="st">'시군구명'</span>: <span class="st">'시군구'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb35-3"><a href=""></a></span>
+<span id="cb35-4"><a href=""></a>camera_count <span class="op">=</span> camera.groupby([<span class="st">'시도명'</span>, <span class="st">'시군구'</span>]).size().reset_index(name<span class="op">=</span><span class="st">'단속카메라수'</span>)</span>
+<span id="cb35-5"><a href=""></a>camera_merged_df <span class="op">=</span> pd.merge(camera_count, accident.groupby([<span class="st">'시도명'</span>, <span class="st">'시군구'</span>])[<span class="st">'사고건수'</span>].<span class="bu">sum</span>().reset_index(), on<span class="op">=</span>[<span class="st">'시도명'</span>, <span class="st">'시군구'</span>])</span>
+<span id="cb35-6"><a href=""></a></span>
+<span id="cb35-7"><a href=""></a>merged_df <span class="op">=</span> pd.merge(camera_merged_df, camera[[<span class="st">'시도명'</span>, <span class="st">'시군구'</span>, <span class="st">'도로종류'</span>, <span class="st">'도로노선있음'</span>]], on<span class="op">=</span>[<span class="st">'시도명'</span>, <span class="st">'시군구'</span>])</span>
+<span id="cb35-8"><a href=""></a></span>
+<span id="cb35-9"><a href=""></a>summary_df <span class="op">=</span> (</span>
+<span id="cb35-10"><a href=""></a>    merged_df.groupby([<span class="st">'시도명'</span>, <span class="st">'시군구'</span>])</span>
+<span id="cb35-11"><a href=""></a>    .agg({</span>
+<span id="cb35-12"><a href=""></a>        <span class="st">'단속카메라수'</span>: <span class="st">'first'</span>,</span>
+<span id="cb35-13"><a href=""></a>        <span class="st">'사고건수'</span>: <span class="st">'first'</span>,</span>
+<span id="cb35-14"><a href=""></a>        <span class="st">'도로노선있음'</span>: <span class="st">'mean'</span>  <span class="co"># True 비율</span></span>
+<span id="cb35-15"><a href=""></a>    })</span>
+<span id="cb35-16"><a href=""></a>    .reset_index()</span>
+<span id="cb35-17"><a href=""></a>)</span>
+<span id="cb35-18"><a href=""></a></span>
+<span id="cb35-19"><a href=""></a><span class="co"># 컬럼명 정리</span></span>
+<span id="cb35-20"><a href=""></a>summary_df <span class="op">=</span> summary_df[[<span class="st">'시군구'</span>, <span class="st">'단속카메라수'</span>, <span class="st">'사고건수'</span>, <span class="st">'도로노선있음'</span>]]</span>
+<span id="cb35-21"><a href=""></a>summary_df.rename(columns<span class="op">=</span>{<span class="st">'도로노선있음'</span>: <span class="st">'도로노선비율'</span>}, inplace<span class="op">=</span><span class="va">True</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>회귀모델 분석 진행</li>
+</ul>
+<div id="dff35538" class="cell" data-execution_count="43">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb36-1"><a href=""></a>pop_df <span class="op">=</span> pd.read_csv(<span class="st">'../team2/data/시군구_별_인구수.csv'</span>)</span>
+<span id="cb36-2"><a href=""></a></span>
+<span id="cb36-3"><a href=""></a>pop_df <span class="op">=</span> pop_df.rename(columns<span class="op">=</span>{pop_df.columns[<span class="dv">0</span>]: <span class="st">'시군구'</span>, pop_df.columns[<span class="dv">1</span>]: <span class="st">'인구수'</span>})</span>
+<span id="cb36-4"><a href=""></a>pop_df <span class="op">=</span> pop_df[<span class="op">~</span>pop_df[<span class="st">'시군구'</span>].<span class="bu">str</span>.contains(<span class="st">'총인구수|행정구역'</span>)]  <span class="co"># 불필요한 행 제거</span></span>
+<span id="cb36-5"><a href=""></a>pop_df <span class="op">=</span> pop_df.dropna()  <span class="co"># 혹시 모를 NaN 제거</span></span>
+<span id="cb36-6"><a href=""></a>pop_df[<span class="st">'인구수'</span>] <span class="op">=</span> pop_df[<span class="st">'인구수'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb36-7"><a href=""></a></span>
+<span id="cb36-8"><a href=""></a>final_df <span class="op">=</span> pd.merge(summary_df, pop_df, on<span class="op">=</span><span class="st">'시군구'</span>, how<span class="op">=</span><span class="st">'left'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>회귀모델 분석 진행</li>
+</ul>
+<div id="9d44b1e1" class="cell" data-execution_count="44">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb37-1"><a href=""></a><span class="im">from</span> statsmodels.formula.api <span class="im">import</span> ols</span>
+<span id="cb37-2"><a href=""></a></span>
+<span id="cb37-3"><a href=""></a>model <span class="op">=</span> ols(<span class="st">'사고건수 ~ 단속카메라수 + 도로노선비율 + 인구수'</span>, final_df).fit()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol type="1">
+<li>종속변수 y : 교통사고 발생 건수</li>
+<li>독립변수 X : 단속카메라 수, 도로노선비율, 인구수 / 시군구 별</li>
+</ol>
+</section>
+<section class="slide level2 center">
+
+<div id="bd24d4d5" class="cell" data-execution_count="45">
+<div class="cell-output cell-output-stdout">
+<pre><code>                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                   사고건수   R-squared:                       0.695
+Model:                            OLS   Adj. R-squared:                  0.692
+Method:                 Least Squares   F-statistic:                     244.1
+Date:                Thu, 17 Apr 2025   Prob (F-statistic):           1.38e-82
+Time:                        20:03:37   Log-Likelihood:                -2449.5
+No. Observations:                 326   AIC:                             4907.
+Df Residuals:                     322   BIC:                             4922.
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P&gt;|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept    110.4797     55.679      1.984      0.048       0.939     220.021
+단속카메라수         3.2748      0.384      8.517      0.000       2.518       4.031
+도로노선비율      -305.3707    109.047     -2.800      0.005    -519.905     -90.836
+인구수            0.0022      0.000     12.598      0.000       0.002       0.003
+==============================================================================
+Omnibus:                       71.350   Durbin-Watson:                   1.188
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              196.981
+Skew:                           1.004   Prob(JB):                     1.68e-43
+Kurtosis:                       6.236   Cond. No.                     1.39e+06
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 1.39e+06. This might indicate that there are
+strong multicollinearity or other numerical problems.</code></pre>
+</div>
+</div>
+<ol type="1">
+<li>Adj. R-squared: 0.699로 설명력이 높은 모델임을 확인!</li>
+<li>Prob (F-statistic): 2.44e-87로 유의미한 회귀 모델임을 확인!</li>
+</ol>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>OLS 결과 분석</li>
+</ul>
+<div id="0177a399" class="cell" data-execution_count="46">
+<div class="cell-output cell-output-display">
+<div>
+<style scoped="">
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+
+<table class="dataframe caption-top" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header" style="text-align: right;">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">변수</th>
+<th data-quarto-table-cell-role="th">coef</th>
+<th data-quarto-table-cell-role="th">p</th>
+<th data-quarto-table-cell-role="th">0.025</th>
+<th data-quarto-table-cell-role="th">0.975</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>Intercept</td>
+<td>110.480</td>
+<td>0.048</td>
+<td>0.939</td>
+<td>220.021</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>단속카메라수</td>
+<td>3.275</td>
+<td>0.000</td>
+<td>2.518</td>
+<td>4.031</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>도로노선비율</td>
+<td>-305.371</td>
+<td>0.005</td>
+<td>-519.905</td>
+<td>-90.836</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>인구수</td>
+<td>0.002</td>
+<td>0.000</td>
+<td>0.002</td>
+<td>0.003</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<ol type="1">
+<li><p>모든 회귀계수의 p-value가 유의수준 5%하에 유의미한 변수임</p></li>
+<li><p>단속카메라수의 양의 계수 <br> 실제로는 “사고가 많은 지역에 카메라를 더 설치”하는 경향이 있음 <br> 역인과 가능성이 존재</p></li>
+</ol>
+</section>
+<section class="slide level2 center">
+
+<div id="2c89c8d1" class="cell" data-execution_count="47">
+<div class="cell-output cell-output-display">
+<div>
+<figure>
+<p><img data-src="style_files/figure-revealjs/cell-48-output-1.png" width="950" height="469"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>잔차의 정규성 검정</li>
+</ul>
+<div id="db075b98" class="cell" data-execution_count="49">
+<div class="cell-output cell-output-display" data-execution_count="141">
+<style type="text/css">
+</style>
+
+<table id="T_9f633" class="styled-table caption-top" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th class="blank level0" data-quarto-table-cell-role="th">&nbsp;</th>
+<th id="T_9f633_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">검정</th>
+<th id="T_9f633_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">p-value</th>
+<th id="T_9f633_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">판정</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td id="T_9f633_level0_row0" class="row_heading level0 row0" data-quarto-table-cell-role="th">0</td>
+<td id="T_9f633_row0_col0" class="data row0 col0">shapiro</td>
+<td id="T_9f633_row0_col1" class="data row0 col1">0.000000</td>
+<td id="T_9f633_row0_col2" class="data row0 col2">정규성 X</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>잔차 그래프와 정규성 검정, Durbin-Watson 통계량값을 통해 오차항의 가정을 모두 위반하는 것을 확인!</p>
+<p>👉 따라서 해당 검정 결과의 신뢰도가 다소 떨어질 수 있다. <br> 👉 적합한 모델을 새로 설정하여 분석하는 것이 타당해보인다.</p>
+</section>
+<section id="결론" class="slide level2 center">
+<h2>🎯 결론</h2>
+</section>
+<section class="slide level2 center">
+
+<ul>
+<li>가설에 대한 검증</li>
+</ul>
+<p>앞서 진행한 검정 결과를 바탕으로, 도로종류, 시도별, 단속카메라 수, 도로노선 유무는 교통사고 발생 건수와 통계적으로 유의미한 요인임을 확인할 수 있었다.</p>
+<ul>
+<li>한계점</li>
+</ul>
+<ol type="1">
+<li>회귀모델 잔차분석 결과에 따라 모델 분석 결과의 신뢰도가 떨어질 수 있다.</li>
+<li>한정된 데이터로 만든 모델이기 때문에 일반화가 가능한지를 판단하기 위해 추후 민감도 분석이 필요해보인다.</li>
+<li>분석 요인 외에 교통사고 발생 건수와 관련있는 요인을 변수로 추가하여 분석을 진행한다면 보다 유의미한 결과를 도출할 수 있을 것으로 보인다.</li>
+</ol>
+</section>
+<section id="감사합니다" class="slide level2 center">
+<h2>📮 감사합니다!</h2>
+<blockquote>
+<p>발표를 들어주셔서 감사합니다 💕</p>
+</blockquote>
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="style_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="style_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="style_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="style_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="style_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="style_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="style_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="style_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="style_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="style_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="style_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"8\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c/t',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: true,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'fade',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
